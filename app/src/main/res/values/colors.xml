@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="primaryColor">#39AEFF</color>
+    <color name="primaryDarkColor">#0775C1</color>
+    <color name="primaryTextColor">#ffffff</color>
+
+    <!--semi mandatory-->
+    <color name="surfaceColor">#ffffff</color>
+    <color name="surfaceTextColor">#000000</color>
+
+    <color name="backgroundColor">#ffffff</color>
+    <color name="backgroundTextColor">#000000</color>
+
+
+
+
+    <color name="primaryBlue">#39AEFF</color>
+    <color name="successGreen">#14DA9E</color>
+    <color name="confirmOrange">#F9A229</color>
+    <color name="errorRed">#EE5562</color>
+
+    <color name="darkestBlue">#0775C1</color>
+    <color name="lightestBlue">#9BE0FA</color>
+
+    <color name="darkestGreen">#08B27C</color>
+    <color name="lightestGreen">#95F4D7</color>
+
+    <color name="darkGrey">#333333</color>
+    <color name="mediumGrey">#666666</color>
+    <color name="warmGrey">#9F9F9F</color>
+    <color name="hintGrey">#D8D8D8</color>
+    <color name="neutralGrey">#CCCCCC</color>
+    <color name="lightGrey">#EBEBEB</color>
+    <color name="lighterGrey">#FBFBFB</color>
+    <color name="white">#FFFFFF</color>
+
+</resources>
