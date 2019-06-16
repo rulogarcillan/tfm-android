@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "871532884111",
+    "firebase_url": "https://burguer-finder.firebaseio.com",
+    "project_id": "burguer-finder",
+    "storage_bucket": "burguer-finder.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:871532884111:android:d17464ce47c6277d",
+        "android_client_info": {
+          "package_name": "tuppersoft.com.burguerfinder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "871532884111-j6glq31aq61qrecvttput095g8eh1cpu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tuppersoft.com.burguerfinder",
+            "certificate_hash": "dd24ba1c33f6740cbf6b3cc87ecd03787f4fbc01"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKAEvQGl6JpaLiOWkZ96EPrBZMHfpPcJo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "871532884111-sdfusvbgun70t3vqplvi1pgt1452359c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
