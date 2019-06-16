@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--guide lines-->
+    <fraction name="guide_aurea">0.25</fraction>
+
+</resources>

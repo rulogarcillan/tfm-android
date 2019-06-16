@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppThemeBase" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="AppThemeBase" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!--****************** BASE |-> *********************-->
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryVariant">@color/primaryDarkColor</item>
@@ -46,5 +46,13 @@
         <item name="textAppearanceOverline">@style/textOverline</item>
         <item name="android:textViewStyle">@style/textTexView</item>
     </style>
+
+    <style name="SplashTheme" parent="AppTheme">
+
+        <item name="android:colorBackground">@color/splash</item>
+        <item name="colorPrimaryVariant">@color/splash</item>
+    </style>
+
+
 
 </resources>

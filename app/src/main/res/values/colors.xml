@@ -13,8 +13,6 @@
     <color name="backgroundTextColor">#000000</color>
 
 
-
-
     <color name="primaryBlue">#39AEFF</color>
     <color name="successGreen">#14DA9E</color>
     <color name="confirmOrange">#F9A229</color>
@@ -35,4 +33,6 @@
     <color name="lighterGrey">#FBFBFB</color>
     <color name="white">#FFFFFF</color>
 
+    <color name="splash">#1C2939</color>
+    <color name="splash2">#15202b</color>
 </resources>
