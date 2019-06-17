@@ -34,7 +34,8 @@
 
 
     <ImageView
-        android:layout_width="match_parent"
+
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:alpha="0.5"
         android:scaleType="centerCrop"
@@ -42,31 +43,33 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/hamburger"/>
+        app:srcCompat="@drawable/hamburger2"/>
 
 
     <TextView android:id="@+id/idLogo"
               style="@style/titleLogin"
-
+              android:textAlignment="textEnd"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:text="Burguer"
+              android:text="Best"
               android:textStyle="bold"
-              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintEnd_toStartOf="@+id/idTitle"
               app:layout_constraintStart_toStartOf="parent"
               app:layout_constraintTop_toTopOf="@+id/guidelineStart"
     />
 
     <TextView android:id="@+id/idTitle"
               style="@style/titleLogin"
+              android:textAlignment="textStart"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:text="finder"
+              android:text="Burguer"
               android:textColor="@android:color/black"
               android:textStyle="bold"
               app:layout_constraintEnd_toEndOf="parent"
-              app:layout_constraintStart_toStartOf="parent"
-              app:layout_constraintTop_toBottomOf="@+id/idLogo"/>
+              app:layout_constraintStart_toEndOf="@+id/idLogo"
+              app:layout_constraintTop_toTopOf="@+id/guidelineStart"
+          />
 
 
     <ImageView
