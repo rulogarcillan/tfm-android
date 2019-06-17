@@ -31,8 +31,7 @@ class SplashActivity : AppCompatActivity() {
 
     private fun startApp() {
         Handler().postDelayed({
-            Navigation.goMainActivity(this)
-            finish()
+            Navigation.goLoginActivity(this)
         }, TIME_SPLASH)
 
     }

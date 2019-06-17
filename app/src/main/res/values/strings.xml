@@ -3,4 +3,6 @@
     <string name="app_name">Burguer Finder</string>
     <string name="client_id">871532884111-sdfusvbgun70t3vqplvi1pgt1452359c.apps.googleusercontent.com</string>
 
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="by_signing_up_you_agree_to_our_tos_and_privacy_policy">by signing up you agree to our ToS and Privacy Policy</string>
 </resources>

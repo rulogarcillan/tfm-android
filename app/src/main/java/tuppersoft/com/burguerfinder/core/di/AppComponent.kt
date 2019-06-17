@@ -4,7 +4,7 @@ import dagger.Component
 import tuppersoft.com.burguerfinder.App
 import tuppersoft.com.burguerfinder.core.di.repositories.RepositoriesModule
 import tuppersoft.com.burguerfinder.core.di.viewmodel.ViewModelModule
-import tuppersoft.com.burguerfinder.features.main.MainActivity
+import tuppersoft.com.burguerfinder.features.login.LoginActivity
 import javax.inject.Singleton
 
 
@@ -13,6 +13,6 @@ import javax.inject.Singleton
 interface AppComponent {
 
     fun inject(app: App)
-    fun inject(mainActivity: MainActivity)
+    fun inject(loginActivity: LoginActivity)
 
 }

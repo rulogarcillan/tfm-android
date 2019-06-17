@@ -7,5 +7,12 @@
     <dimen name="font_medium">16sp</dimen>
 
 
+    <dimen name="dimen_logo">96dp</dimen>
+    <dimen name="dimen_distance_logo">32dp</dimen>
+    <dimen name="margin_default">16dp</dimen>
+
+
+    <dimen name="globalButtonCornes">28dp</dimen>
+    <dimen name="globalButtonHeigth">56dp</dimen>
 
 </resources>

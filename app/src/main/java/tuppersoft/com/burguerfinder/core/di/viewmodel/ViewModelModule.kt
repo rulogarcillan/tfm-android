@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
-import tuppersoft.com.burguerfinder.features.main.MainViewModel
+import tuppersoft.com.burguerfinder.features.login.LoginViewModel
 
 @Module
 abstract class ViewModelModule {
@@ -16,8 +16,8 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(MainViewModel::class)
-    abstract fun bindMainViewModel(viewModel: MainViewModel): ViewModel
+    @ViewModelKey(LoginViewModel::class)
+    abstract fun bindMainViewModel(viewModel: LoginViewModel): ViewModel
 
 }
 

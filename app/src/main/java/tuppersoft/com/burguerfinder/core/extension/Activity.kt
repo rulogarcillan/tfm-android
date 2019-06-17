@@ -1,5 +1,6 @@
 package tuppersoft.com.burguerfinder.core.extension
 
+import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -13,3 +14,11 @@ inline fun <reified T : ViewModel> AppCompatActivity.viewModel(
     vm.body()
     return vm
 }
+
+
+fun Activity.finishOrNot(finish: Boolean) {
+    if (finish) {
+        this.finish()
+    }
+}
+
