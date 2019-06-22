@@ -36,7 +36,6 @@
     <ImageView
         android:layout_width="0dp"
         android:layout_height="0dp"
-
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="@+id/guidelineEnd"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,24 +62,19 @@
         android:src="@drawable/illustration_curved_top_login"
         app:layout_constraintBottom_toTopOf="@id/guidelineEnd"
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintStart_toStartOf="parent"/>
 
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/idGoogle"
-        style="@style/main_button_secondary_color"
+        style="@style/main_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
         android:elevation="1dp"
         android:onClick="onClickGoogle"
         android:text="@string/sign_in_with_google"
-        android:textColor="@color/white"
-        android:translationZ="1dp"
         app:icon="@drawable/ic_google"
-        app:iconTint="@null"
+        app:iconTint="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/idTerms"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,8 +87,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin_default"
         android:gravity="center"
-        android:textColor="@color/darkGrey"
         android:text="@string/by_signing_up_you_agree_to_our_tos_and_privacy_policy"
+        android:textColor="@color/darkGrey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>

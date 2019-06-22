@@ -5,7 +5,7 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/ic_home_menu"
         android:title="Home"
         app:showAsAction="ifRoom"/>
 
@@ -16,15 +16,15 @@
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/navigation__bookbark"
+        android:id="@+id/navigation_bookbark"
         android:icon="@drawable/ic_bookbark"
-        android:title="Bookmark"
+        android:title="Bookmarks"
         app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/navigation_top"
-        android:icon="@drawable/ic_top"
-        android:title="Top foodlie"
+        android:icon="@drawable/ic_message_menu"
+        android:title="Messages"
         app:showAsAction="ifRoom"/>
 
     <item

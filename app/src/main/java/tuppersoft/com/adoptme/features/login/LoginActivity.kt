@@ -7,17 +7,16 @@ import android.view.WindowManager.LayoutParams
 import android.widget.Toast
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import tuppersoft.com.adoptme.R
-import tuppersoft.com.adoptme.core.di.viewmodel.ViewModelFactory
 import tuppersoft.com.adoptme.core.extension.log
-import tuppersoft.com.adoptme.core.extension.viewModel
 import tuppersoft.com.adoptme.core.navigation.Navigation
 import tuppersoft.com.adoptme.core.platform.GlobalActivity
-import javax.inject.Inject
+import tuppersoft.com.adoptme.core.platform.GlobalFunctions
 
 
 class LoginActivity : GlobalActivity() {
@@ -26,19 +25,17 @@ class LoginActivity : GlobalActivity() {
         const val GOOGLE_SING = 1
     }
 
-    private lateinit var mainViewModel: LoginViewModel
+
     private lateinit var auth: FirebaseAuth
 
-
-    @Inject
-    lateinit var viewModelFactory: ViewModelFactory
+    lateinit var mGoogleSignInClient: GoogleSignInClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         appComponent.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_main)
+        mGoogleSignInClient = GlobalFunctions.getGoogleSignInClient(application)
 
-        initViewModel()
         configThemeBar()
 
         auth = FirebaseAuth.getInstance()
@@ -58,12 +55,9 @@ class LoginActivity : GlobalActivity() {
         w.setFlags(LayoutParams.FLAG_LAYOUT_NO_LIMITS, LayoutParams.FLAG_LAYOUT_NO_LIMITS)
     }
 
-    private fun initViewModel() {
-        mainViewModel = viewModel(viewModelFactory) { }
-    }
 
     private fun googleSignIn() {
-        val signInIntent = mainViewModel.mGoogleSignInClient.signInIntent
+        val signInIntent = mGoogleSignInClient.signInIntent
         startActivityForResult(signInIntent, GOOGLE_SING)
     }
 
@@ -83,10 +77,6 @@ class LoginActivity : GlobalActivity() {
 
         } catch (e: ApiException) {
             "signInResult:failed code=" + e.statusCode.toString().log()
-
-            /* if (e.statusCode != GoogleSignInStatusCodes.SIGN_IN_CANCELLED) {
-                 handleFailure(LoginFailure.UnauthorizedError)
-             }*/
         }
     }
 
