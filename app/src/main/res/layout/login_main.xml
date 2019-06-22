@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="@fraction/guide_aurea_top"/>
+        app:layout_constraintGuide_percent="@fraction/guide_aurea_medium"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineEnd"
@@ -26,7 +26,7 @@
         android:id="@+id/idPlayerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/secondaryColor"
+        android:background="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/guidelineEnd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,26 +34,26 @@
 
 
     <ImageView
-
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:alpha="0.7"
+
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="@+id/guidelineEnd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/hamburger2"/>
+        app:srcCompat="@drawable/pet"/>
 
 
     <ImageView
         android:id="@+id/idLogo"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/guidelineStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guidelineStart"
-        app:srcCompat="@drawable/ic_bestburguer"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_adoptme"/>
 
 
     <ImageView
@@ -63,10 +63,11 @@
         android:src="@drawable/illustration_curved_top_login"
         app:layout_constraintBottom_toTopOf="@id/guidelineEnd"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintStart_toStartOf="parent"/>
 
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/idGoogle"
         style="@style/main_button_secondary_color"
         android:layout_width="match_parent"
@@ -76,22 +77,26 @@
         android:elevation="1dp"
         android:onClick="onClickGoogle"
         android:text="@string/sign_in_with_google"
-        android:textColor="@android:color/black"
+        android:textColor="@color/white"
         android:translationZ="1dp"
-        app:iconTint="@color/darkGrey"
+        app:icon="@drawable/ic_google"
+        app:iconTint="@null"
         app:layout_constraintBottom_toTopOf="@+id/idTerms"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/guidelineEnd"/>
+        app:layout_constraintTop_toTopOf="@id/guidelineEnd"
+        app:rippleColor="@color/neutralGrey"/>
 
-    <TextView android:id="@+id/idTerms"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_marginBottom="@dimen/margin_default"
-              android:gravity="center"
-              android:text="@string/by_signing_up_you_agree_to_our_tos_and_privacy_policy"
-              app:layout_constraintBottom_toBottomOf="parent"
-              app:layout_constraintEnd_toEndOf="parent"
-              app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+        android:id="@+id/idTerms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_default"
+        android:gravity="center"
+        android:textColor="@color/darkGrey"
+        android:text="@string/by_signing_up_you_agree_to_our_tos_and_privacy_policy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

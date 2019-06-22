@@ -3,6 +3,7 @@
 
     <!--guide lines-->
     <fraction name="guide_aurea_top">0.25</fraction>
+    <fraction name="guide_aurea_medium">0.40</fraction>
     <fraction name="guide_aurea_end">0.75</fraction>
 
 </resources>

@@ -48,8 +48,11 @@
     </style>
 
     <style name="SplashTheme" parent="AppTheme">
-        <item name="android:colorBackground">@color/splash</item>
-        <item name="colorPrimaryVariant">@color/splash</item>
+        <item name="android:colorBackground">@color/secondaryColor</item>
+        <item name="colorPrimaryVariant">@color/secondaryColor</item>
+
+        <item name="colorSecondary">@color/primaryOrange</item>
+        <item name="colorOnSecondary">@color/secondaryTextColor</item>
     </style>
 
 </resources>

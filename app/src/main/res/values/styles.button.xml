@@ -10,12 +10,12 @@
         <item name="cornerRadius">@dimen/globalButtonCornes</item>
         <item name="android:stateListAnimator">@null</item>
         <item name="android:letterSpacing">0</item>
-
     </style>
 
     <style name="main_button" parent="button">
         <item name="android:layout_margin">20dp</item>
     </style>
+
     <style name="main_button_secondary_color" parent="main_button">
         <item name="backgroundTint">@color/secondaryColor</item>
     </style>

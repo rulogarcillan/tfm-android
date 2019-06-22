@@ -5,8 +5,8 @@
     <color name="primaryDarkColor">@color/white</color>
     <color name="primaryTextColor">@color/black</color>
 
-    <color name="secondaryColor">#ffca28</color>
-    <color name="secondaryDarkColor">#c79a00</color>
+    <color name="secondaryColor">#1C2939</color>
+    <color name="secondaryDarkColor">#15202b</color>
     <color name="secondaryTextColor">@color/white</color>
 
     <!--semi mandatory-->
@@ -17,14 +17,14 @@
     <color name="backgroundTextColor">@color/black</color>
 
 
-    <color name="primaryBlue">#39AEFF</color>
-    <color name="successGreen">#14DA9E</color>
-    <color name="confirmOrange">#F9A229</color>
+    <color name="primaryOrange">#F9A229</color>
     <color name="errorRed">#EE5562</color>
 
+    <color name="primaryBlue">#39AEFF</color>
     <color name="darkestBlue">#0775C1</color>
     <color name="lightestBlue">#9BE0FA</color>
 
+    <color name="primaryGreen">#14DA9E</color>
     <color name="darkestGreen">#08B27C</color>
     <color name="lightestGreen">#95F4D7</color>
 
@@ -38,6 +38,4 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
 
-    <color name="splash">#1C2939</color>
-    <color name="splash2">#15202b</color>
 </resources>
