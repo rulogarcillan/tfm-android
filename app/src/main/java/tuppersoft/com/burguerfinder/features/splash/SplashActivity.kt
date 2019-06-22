@@ -1,8 +1,11 @@
 package tuppersoft.com.burguerfinder.features.splash
 
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
 import tuppersoft.com.burguerfinder.R
@@ -20,13 +23,16 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            window.statusBarColor = ContextCompat.getColor(this, R.color.splash)
+        }
+
 
         YoYo.with(Techniques.FadeInDown)
             .duration(1500)
             .onEnd { startApp() }
-            .playOn(findViewById(R.id.animation_view))
-
-
+            .playOn(findViewById(R.id.idLogoSplash))
     }
 
     private fun startApp() {

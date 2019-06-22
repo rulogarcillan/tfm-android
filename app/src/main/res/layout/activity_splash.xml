@@ -3,7 +3,6 @@
                                                    xmlns:tools="http://schemas.android.com/tools"
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
-                                                   android:tileMode="repeat"
                                                    tools:context="tuppersoft.com.burguerfinder.features.splash.SplashActivity">
 
 
@@ -14,17 +13,34 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="@fraction/guide_aurea_top"/>
 
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animation_view"
+    <ImageView
+        android:id="@+id/idLogoSplash"
         android:layout_width="250dp"
         android:layout_height="250dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline"
-        app:lottie_autoPlay="true"
-        app:lottie_fileName="ninja.json"
-        app:lottie_loop="true"/>
+        app:srcCompat="@drawable/ic_logotuppersoft_company"/>
+
+
+    <TextView android:id="@+id/idTitle"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="www.tuppersoft.com"
+              style="@style/titleLogin.Splash"
+              app:layout_constraintTop_toBottomOf="@+id/idLogoSplash"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintEnd_toEndOf="parent"/>
+
+    <include android:id="@+id/idLoading"
+             layout="@layout/view_loading"
+             android:layout_marginBottom="32dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintBottom_toBottomOf="parent"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

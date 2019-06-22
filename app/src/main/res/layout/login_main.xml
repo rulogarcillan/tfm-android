@@ -26,7 +26,7 @@
         android:id="@+id/idPlayerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/primaryColor"
+        android:background="@color/secondaryColor"
         app:layout_constraintBottom_toTopOf="@+id/guidelineEnd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +37,7 @@
 
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:alpha="0.5"
+        android:alpha="0.7"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="@+id/guidelineEnd"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,30 +46,14 @@
         app:srcCompat="@drawable/hamburger2"/>
 
 
-    <TextView android:id="@+id/idLogo"
-              style="@style/titleLogin"
-              android:textAlignment="textEnd"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="Best"
-              android:textStyle="bold"
-              app:layout_constraintEnd_toStartOf="@+id/idTitle"
-              app:layout_constraintStart_toStartOf="parent"
-              app:layout_constraintTop_toTopOf="@+id/guidelineStart"
-    />
-
-    <TextView android:id="@+id/idTitle"
-              style="@style/titleLogin"
-              android:textAlignment="textStart"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="Burguer"
-              android:textColor="@android:color/black"
-              android:textStyle="bold"
-              app:layout_constraintEnd_toEndOf="parent"
-              app:layout_constraintStart_toEndOf="@+id/idLogo"
-              app:layout_constraintTop_toTopOf="@+id/guidelineStart"
-          />
+    <ImageView
+        android:id="@+id/idLogo"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineStart"
+        app:srcCompat="@drawable/ic_bestburguer"/>
 
 
     <ImageView
@@ -84,7 +68,7 @@
 
     <Button
         android:id="@+id/idGoogle"
-        style="@style/main_button"
+        style="@style/main_button_secondary_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -92,6 +76,7 @@
         android:elevation="1dp"
         android:onClick="onClickGoogle"
         android:text="@string/sign_in_with_google"
+        android:textColor="@android:color/black"
         android:translationZ="1dp"
         app:iconTint="@color/darkGrey"
         app:layout_constraintBottom_toTopOf="@+id/idTerms"

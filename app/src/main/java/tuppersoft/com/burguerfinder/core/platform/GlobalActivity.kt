@@ -12,11 +12,5 @@ abstract class GlobalActivity : AppCompatActivity() {
         (application as App).appComponent
     }
 
-    //region lifecycle
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-    //endregion
-
 }
 

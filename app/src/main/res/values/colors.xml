@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="primaryColor">#ffca28</color>
-    <color name="primaryDarkColor">#c79a00</color>
-    <color name="primaryTextColor">#ffffff</color>
+    <color name="primaryColor">@color/white</color>
+    <color name="primaryDarkColor">@color/white</color>
+    <color name="primaryTextColor">@color/black</color>
+
+    <color name="secondaryColor">#ffca28</color>
+    <color name="secondaryDarkColor">#c79a00</color>
+    <color name="secondaryTextColor">@color/white</color>
 
     <!--semi mandatory-->
-    <color name="surfaceColor">#ffffff</color>
-    <color name="surfaceTextColor">#000000</color>
+    <color name="surfaceColor">@color/white</color>
+    <color name="surfaceTextColor">@color/black</color>
 
-    <color name="backgroundColor">#ffffff</color>
-    <color name="backgroundTextColor">#000000</color>
+    <color name="backgroundColor">@color/white</color>
+    <color name="backgroundTextColor">@color/black</color>
 
 
     <color name="primaryBlue">#39AEFF</color>
@@ -32,6 +36,7 @@
     <color name="lightGrey">#EBEBEB</color>
     <color name="lighterGrey">#FBFBFB</color>
     <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
 
     <color name="splash">#1C2939</color>
     <color name="splash2">#15202b</color>

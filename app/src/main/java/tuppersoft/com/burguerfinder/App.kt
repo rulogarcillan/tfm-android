@@ -1,6 +1,7 @@
 package tuppersoft.com.burguerfinder
 
 import android.app.Application
+import com.google.android.libraries.places.api.Places
 import com.google.firebase.analytics.FirebaseAnalytics
 import tuppersoft.com.burguerfinder.core.di.AppComponent
 import tuppersoft.com.burguerfinder.core.di.AppModule
@@ -20,6 +21,7 @@ class App : Application() {
         super.onCreate()
         injectMembers()
         FirebaseAnalytics.getInstance(this)
+        Places.initialize(applicationContext, BuildConfig.GoogleSecAPIKEY)
     }
 
     private fun injectMembers() = appComponent.inject(this)

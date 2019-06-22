@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home"
+        android:title="Home"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/navigation_discovery"
+        android:icon="@drawable/ic_discovery"
+        android:title="Discovery"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/navigation__bookbark"
+        android:icon="@drawable/ic_bookbark"
+        android:title="Bookmark"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/navigation_top"
+        android:icon="@drawable/ic_top"
+        android:title="Top foodlie"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_profile"
+        android:title="Profile"
+        app:showAsAction="ifRoom"/>
+</menu>

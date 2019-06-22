@@ -5,4 +5,16 @@
         <item name="android:layout_marginTop">4dp</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
+
+    <style name="titleLogin.Splash">
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:fontFamily">@font/sarabun_thin</item>
+    </style>
+
+    <style name="subTitleLogin">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <!--/*********** End Login   *********/-->
+
 </resources>

@@ -14,8 +14,10 @@
     </style>
 
     <style name="main_button" parent="button">
-        <item name="backgroundTint">@color/main_buton</item>
         <item name="android:layout_margin">20dp</item>
+    </style>
+    <style name="main_button_secondary_color" parent="main_button">
+        <item name="backgroundTint">@color/secondaryColor</item>
     </style>
 
 </resources>
