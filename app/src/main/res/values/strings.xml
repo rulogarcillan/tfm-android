@@ -6,4 +6,6 @@
     <string name="sign_in_with_google">Sign in with Google</string>
     <string name="by_signing_up_you_agree_to_our_tos_and_privacy_policy">by signing up you agree to our ToS and Privacy Policy</string>
     <string name="loading">Loading</string>
+
+
 </resources>
