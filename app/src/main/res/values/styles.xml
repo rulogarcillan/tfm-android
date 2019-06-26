@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppThemeBase" parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -29,7 +29,6 @@
 
     </style>
 
-
     <style name="AppTheme" parent="AppThemeBase">
         <item name="textAppearanceHeadline1">@style/textHeadline1</item>
         <item name="textAppearanceHeadline2">@style/textHeadline2</item>
@@ -45,11 +44,13 @@
         <item name="textAppearanceButton">@style/textButton</item>
         <item name="textAppearanceOverline">@style/textOverline</item>
         <item name="android:textViewStyle">@style/textTexView</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
     </style>
 
     <style name="SplashTheme" parent="AppTheme">
         <item name="android:colorBackground">@color/splashColor</item>
         <item name="colorPrimaryVariant">@color/splashColor</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
     </style>
 
 </resources>

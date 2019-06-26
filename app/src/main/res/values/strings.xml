@@ -8,4 +8,16 @@
     <string name="loading">Loading</string>
 
 
+    <string name="menu_people">Personal data</string>
+    <string name="menu_term">Terms &amp; Condition</string>
+    <string name="menu_copyleft">License</string>
+    <string name="menu_changelog">Changelog</string>
+    <string name="menu_logout">Logout</string>
+
+
+    list.add(R.drawable.ic_people,)
+    list.add(R.drawable.ic_terms,)
+    list.add(R.drawable.ic_copyleft,)
+    list.add(R.drawable.ic_changelog,)
+    list.add(R.drawable.ic_logout,)
 </resources>

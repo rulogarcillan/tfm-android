@@ -1,10 +1,12 @@
 package tuppersoft.com.adoptme.features.login
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager.LayoutParams
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -25,21 +27,18 @@ class LoginActivity : GlobalActivity() {
         const val GOOGLE_SING = 1
     }
 
-
     private lateinit var auth: FirebaseAuth
 
-    lateinit var mGoogleSignInClient: GoogleSignInClient
+    private val mGoogleSignInClient: GoogleSignInClient by lazy { GlobalFunctions.getGoogleSignInClient(application) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         appComponent.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_main)
-        mGoogleSignInClient = GlobalFunctions.getGoogleSignInClient(application)
 
         configThemeBar()
 
         auth = FirebaseAuth.getInstance()
-
         if (auth.currentUser != null) {
             Navigation.goMainActivity(this)
         }
@@ -91,5 +90,17 @@ class LoginActivity : GlobalActivity() {
                     Toast.makeText(this, "Authentication Failed.", Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+
+    private fun configStatusBar() {
+        val mActivity = this
+        mActivity?.let {
+            val window = mActivity.window
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val decor = window.decorView
+                decor.systemUiVisibility = 0
+
+            }
+        }
     }
 }

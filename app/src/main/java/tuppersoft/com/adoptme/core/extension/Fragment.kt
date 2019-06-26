@@ -1,12 +1,12 @@
 package tuppersoft.com.adoptme.core.extension
 
-import android.app.Activity
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 
-inline fun <reified T : ViewModel> AppCompatActivity.viewModel(
+
+inline fun <reified T : ViewModel> Fragment.viewModel(
     factory: ViewModelProvider.Factory,
     body: T.() -> Unit
 ): T {
@@ -15,18 +15,10 @@ inline fun <reified T : ViewModel> AppCompatActivity.viewModel(
     return vm
 }
 
-inline fun <reified T : ViewModel> AppCompatActivity.viewModel(
+inline fun <reified T : ViewModel> Fragment.viewModel(
     body: T.() -> Unit
 ): T {
     val vm = ViewModelProviders.of(this)[T::class.java]
     vm.body()
     return vm
 }
-
-
-fun Activity.finishOrNot(finish: Boolean) {
-    if (finish) {
-        this.finish()
-    }
-}
-
