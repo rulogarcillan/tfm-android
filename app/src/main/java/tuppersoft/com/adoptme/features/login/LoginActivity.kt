@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager.LayoutParams
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -36,22 +35,16 @@ class LoginActivity : GlobalActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_main)
 
-        configThemeBar()
-
         auth = FirebaseAuth.getInstance()
         if (auth.currentUser != null) {
             Navigation.goMainActivity(this)
         }
+        configStatusBar()
     }
 
 
     fun onClickGoogle(view: View) {
         googleSignIn()
-    }
-
-    private fun configThemeBar() {
-        val w = window
-        w.setFlags(LayoutParams.FLAG_LAYOUT_NO_LIMITS, LayoutParams.FLAG_LAYOUT_NO_LIMITS)
     }
 
 
@@ -93,14 +86,11 @@ class LoginActivity : GlobalActivity() {
     }
 
     private fun configStatusBar() {
-        val mActivity = this
-        mActivity?.let {
-            val window = mActivity.window
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                val decor = window.decorView
-                decor.systemUiVisibility = 0
-
-            }
+        val w = window
+        w.setFlags(LayoutParams.FLAG_LAYOUT_NO_LIMITS, LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val decor = w.decorView
+            decor.systemUiVisibility = 0
         }
     }
 }
