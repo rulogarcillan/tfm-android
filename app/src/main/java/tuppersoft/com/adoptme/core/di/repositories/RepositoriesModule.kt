@@ -2,20 +2,17 @@ package tuppersoft.com.adoptme.core.di.repositories
 
 import dagger.Module
 import dagger.Provides
-import tuppersoft.com.data.repositories.CharacterRepositoryImpl
-import tuppersoft.com.domain.usescases.GetCharacter
-import tuppersoft.com.domain.usescases.GetCharacters
+import tuppersoft.com.data.repositories.FirebaseRepositoryImpl
+import tuppersoft.com.domain.usescases.GetUser
 import javax.inject.Singleton
+
 
 @Module
 class RepositoriesModule {
 
     @Provides
     @Singleton
-    fun provideGetCharacter(dataSource: CharacterRepositoryImpl): GetCharacter = GetCharacter(dataSource)
+    fun provideGetUser(dataSource: FirebaseRepositoryImpl): GetUser = GetUser(dataSource)
 
-    @Provides
-    @Singleton
-    fun provideGetCharacters(dataSource: CharacterRepositoryImpl): GetCharacters = GetCharacters(dataSource)
 }
 

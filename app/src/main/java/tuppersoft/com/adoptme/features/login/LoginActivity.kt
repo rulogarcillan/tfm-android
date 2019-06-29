@@ -14,10 +14,16 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import tuppersoft.com.adoptme.R
+import tuppersoft.com.adoptme.core.di.viewmodel.ViewModelFactory
 import tuppersoft.com.adoptme.core.extension.log
+import tuppersoft.com.adoptme.core.extension.observe
+import tuppersoft.com.adoptme.core.extension.viewModel
 import tuppersoft.com.adoptme.core.navigation.Navigation
 import tuppersoft.com.adoptme.core.platform.GlobalActivity
 import tuppersoft.com.adoptme.core.platform.GlobalFunctions
+import tuppersoft.com.domain.entities.UserDto
+import tuppersoft.com.domain.usescases.GetUser
+import javax.inject.Inject
 
 
 class LoginActivity : GlobalActivity() {
@@ -26,7 +32,14 @@ class LoginActivity : GlobalActivity() {
         const val GOOGLE_SING = 1
     }
 
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+    lateinit var loginViewModel: LoginViewModel
+
     private lateinit var auth: FirebaseAuth
+
+    @Inject
+    lateinit var getUser: GetUser
 
     private val mGoogleSignInClient: GoogleSignInClient by lazy { GlobalFunctions.getGoogleSignInClient(application) }
 
@@ -34,14 +47,23 @@ class LoginActivity : GlobalActivity() {
         appComponent.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_main)
-
         auth = FirebaseAuth.getInstance()
-        if (auth.currentUser != null) {
-            Navigation.goMainActivity(this)
-        }
+        initViewModel()
         configStatusBar()
     }
 
+
+    private fun initViewModel() {
+        loginViewModel = viewModel(viewModelFactory) {
+            observe(userDto, ::handleLogin)
+        }
+    }
+
+    fun handleLogin(userDto: UserDto?) {
+        if (userDto != null) {
+            Navigation.goMainActivity(this)
+        }
+    }
 
     fun onClickGoogle(view: View) {
         googleSignIn()
@@ -65,7 +87,9 @@ class LoginActivity : GlobalActivity() {
     private fun handleGoogleSignIn(completedTask: Task<GoogleSignInAccount>) {
         try {
             val account = completedTask.getResult(ApiException::class.java)
-            firebaseAuthWithGoogle(account!!)
+            account?.let {
+                firebaseAuthWithGoogle(account)
+            }
 
         } catch (e: ApiException) {
             "signInResult:failed code=" + e.statusCode.toString().log()

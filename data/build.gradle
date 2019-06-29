@@ -26,6 +26,11 @@ android {
         sourceCompatibility 1.8
     }
 
+    packagingOptions {
+        exclude 'META-INF/library-core_release.kotlin_module'
+    }
+
+
 }
 
 dependencies {
@@ -44,14 +49,16 @@ dependencies {
     kapt 'com.google.dagger:dagger-android-processor:2.22.1'
 
     //retrofit
-    api 'com.squareup.retrofit2:retrofit:2.6.0'
-    api "com.squareup.retrofit2:converter-gson:2.5.0"
+   /* api 'com.squareup.retrofit2:retrofit:2.6.0'
+    api "com.squareup.retrofit2:converter-gson:2.6.0"
     api "com.squareup.okhttp3:okhttp:3.14.2"
     api "com.squareup.okhttp3:logging-interceptor:3.14.2"
 
     //db room
     api "androidx.room:room-runtime:2.1.0"
-    kapt "androidx.room:room-compiler:2.1.0"
+    kapt "androidx.room:room-compiler:2.1.0"*/
 
     implementation project(':domain')
+    api 'com.google.firebase:firebase-auth:18.0.0'
+    api 'com.google.firebase:firebase-database:18.0.0'
 }

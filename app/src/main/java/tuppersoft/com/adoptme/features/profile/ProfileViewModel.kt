@@ -9,7 +9,7 @@ import tuppersoft.com.adoptme.core.platform.GlobalFunctions
 
 class ProfileViewModel constructor(private val app: Application) : GlobalContextViewModel(app) {
 
-    var logoutState: MutableLiveData<Boolean> = MutableLiveData(false)
+    var logoutState: MutableLiveData<Boolean> = MutableLiveData()
     private val mGoogleSignInClient: GoogleSignInClient by lazy { GlobalFunctions.getGoogleSignInClient(app) }
 
     fun logout() {

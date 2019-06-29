@@ -2,9 +2,10 @@ package tuppersoft.com.adoptme.core.navigation
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.fragment.app.FragmentManager
-import com.google.firebase.auth.FirebaseAuth
-import tuppersoft.com.adoptme.R
+import com.mikepenz.aboutlibraries.LibsBuilder
 import tuppersoft.com.adoptme.core.extension.finishOrNot
 import tuppersoft.com.adoptme.features.login.LoginActivity
 import tuppersoft.com.adoptme.features.main.MainActivity
@@ -12,17 +13,15 @@ import tuppersoft.com.adoptme.features.profile.ProfileFragment
 
 
 object Navigation {
+
+    const val URL_TERM_CONDITION = "https://info.tuppersoft.com/privacy/privacy_policy_adoptme.html"
+
     fun goLoginActivity(mActivity: Activity, finish: Boolean = true) {
 
-        val auth = FirebaseAuth.getInstance()
+        val intent = Intent(mActivity, LoginActivity::class.java)
+        mActivity.startActivity(intent)
+        mActivity.finishOrNot(finish)
 
-        if (auth.currentUser != null) {
-            goMainActivity(mActivity)
-        } else {
-            val intent = Intent(mActivity, LoginActivity::class.java)
-            mActivity.startActivity(intent)
-            mActivity.finishOrNot(finish)
-        }
     }
 
     fun goMainActivity(mActivity: Activity, finish: Boolean = true) {
@@ -34,8 +33,32 @@ object Navigation {
     fun goProfileFragment(manager: FragmentManager) {
         val profileFragment = ProfileFragment.newInstance()
         val transaction = manager.beginTransaction()
-        transaction.replace(R.id.idFrameLayout, profileFragment, ProfileFragment::class.java.name)
+        transaction.replace(tuppersoft.com.adoptme.R.id.idFrameLayout, profileFragment, ProfileFragment::class.java.name)
         transaction.disallowAddToBackStack()
         transaction.commit()
+    }
+
+    fun goLibraries(mActivity: Activity) {
+        LibsBuilder()
+            .withFields(tuppersoft.com.adoptme.R.string::class.java.fields)
+            .withAutoDetect(true)
+            .withVersionShown(true)
+            .withLicenseShown(true)
+            .withAboutIconShown(true)
+            .withAboutVersionShown(true)
+            .withAboutDescription(mActivity.resources.getString(tuppersoft.com.adoptme.R.string.written_by) + " " + "<a href='https://www.linkedin.com/in/raul-rodriguez-concepcion/'>Linkedin</a><br/><br/><b>License GNU GPL V3.0</b><br/><a href=\"https://github.com/rulogarcillan/tfm-android\">Project in Github</a>")
+            .withAboutAppName(mActivity.getString(tuppersoft.com.adoptme.R.string.app_name))
+            .withActivityTitle(mActivity.resources.getString(tuppersoft.com.adoptme.R.string.app_name))
+            //.withActivityStyle(Libs.ActivityStyle.LIGHT_DARK_TOOLBAR)
+            .withActivityTheme(tuppersoft.com.adoptme.R.style.AppTheme)
+            .start(mActivity)
+    }
+
+    fun goTermCondition(mActivity: Activity) {
+        val customTabsIntent = CustomTabsIntent.Builder().build()
+        customTabsIntent.launchUrl(
+            mActivity, Uri.parse(URL_TERM_CONDITION)
+
+        )
     }
 }

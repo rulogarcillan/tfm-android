@@ -1,11 +1,7 @@
 package tuppersoft.com.data.cloud
 
-import arrow.core.Either
-import retrofit2.Call
-import tuppersoft.com.domain.exception.Failure
-import java.io.IOException
-import java.net.UnknownHostException
 
+/*
 fun <T, R> request(call: Call<T>, transform: (T) -> R): Either<Failure, R> {
     return try {
         val response = call.execute()
@@ -20,4 +16,4 @@ fun <T, R> request(call: Call<T>, transform: (T) -> R): Either<Failure, R> {
             else -> Either.Left(Failure.ServerError)
         }
     }
-}
+}*/

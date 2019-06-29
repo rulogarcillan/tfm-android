@@ -1,6 +1,8 @@
 <resources>
 
     <string name="app_name">Adoptme</string>
+    <string name="written_by">Raúl R.C</string>
+
     <string name="client_id">711373374956-kl3t6dgev9kddi37lktguvlulfevqh5q.apps.googleusercontent.com</string>
 
     <string name="sign_in_with_google">Sign in with Google</string>

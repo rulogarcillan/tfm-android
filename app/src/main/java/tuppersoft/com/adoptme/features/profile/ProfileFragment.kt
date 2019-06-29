@@ -46,8 +46,8 @@ class ProfileFragment : GlobalFragment() {
 
             when (option.id) {
                 ProfileItemMenu.MENU_PERSONAL_DATA -> "TODO".log()
-                ProfileItemMenu.MENU_TERMS -> "TODO".log()
-                ProfileItemMenu.MENU_LICENSE -> "TODO".log()
+                ProfileItemMenu.MENU_TERMS -> activity?.let { mActivity -> Navigation.goTermCondition(mActivity) }
+                ProfileItemMenu.MENU_LICENSE -> activity?.let { mActivity -> Navigation.goLibraries(mActivity) }
                 ProfileItemMenu.MENU_CHANGELOG -> "TODO".log()
                 ProfileItemMenu.MENU_LOGOUT -> profileViewModel.logout()
             }
@@ -66,7 +66,7 @@ class ProfileFragment : GlobalFragment() {
 
         list.add(ProfileItemMenu(ProfileItemMenu.MENU_PERSONAL_DATA, R.drawable.ic_people, R.string.menu_people))
         list.add(ProfileItemMenu(ProfileItemMenu.MENU_TERMS, R.drawable.ic_terms, R.string.menu_term))
-        list.add(ProfileItemMenu(ProfileItemMenu.MENU_LICENSE, R.drawable.ic_copyleft, R.string.menu_copyleft))
+        list.add(ProfileItemMenu(ProfileItemMenu.MENU_LICENSE, R.drawable.ic_license, R.string.menu_copyleft))
         list.add(ProfileItemMenu(ProfileItemMenu.MENU_CHANGELOG, R.drawable.ic_changelog, R.string.menu_changelog))
         list.add(ProfileItemMenu(ProfileItemMenu.MENU_LOGOUT, R.drawable.ic_logout, R.string.menu_logout, false))
 
