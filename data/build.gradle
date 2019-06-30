@@ -37,11 +37,6 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1"
 
-    //test
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
     //di
     api 'com.google.dagger:dagger:2.22.1'
     api 'com.google.dagger:dagger-android:2.22.1'
@@ -61,4 +56,5 @@ dependencies {
     implementation project(':domain')
     api 'com.google.firebase:firebase-auth:18.0.0'
     api 'com.google.firebase:firebase-database:18.0.0'
+    api 'com.google.firebase:firebase-firestore:20.1.0'
 }

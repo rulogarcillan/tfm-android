@@ -23,16 +23,31 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-        <ImageView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/ivProfile"
             android:layout_width="64dp"
             android:layout_height="64dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginStart="@dimen/margin_default"
-            android:tint="@color/secondaryTextColor"
+            android:elevation="12dp"
+            android:innerRadius="0dp"
+            android:shape="ring"
+            android:thicknessRatio="1.9"
+            app:cardCornerRadius="32dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_profile"/>
+            app:layout_constraintTop_toTopOf="parent">
+            <ImageView
+                android:id="@+id/ivAvatar"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                tools:srcCompat="@drawable/ic_profile"
+                android:scaleType="centerCrop"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true">
+            </ImageView>
+        </com.google.android.material.card.MaterialCardView>
+
 
         <LinearLayout
             android:layout_width="wrap_content"

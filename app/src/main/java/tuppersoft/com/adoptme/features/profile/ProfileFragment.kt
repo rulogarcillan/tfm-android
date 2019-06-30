@@ -10,11 +10,13 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 import tuppersoft.com.adoptme.R
+import tuppersoft.com.adoptme.core.extension.loadFromUrl
 import tuppersoft.com.adoptme.core.extension.log
 import tuppersoft.com.adoptme.core.extension.observe
 import tuppersoft.com.adoptme.core.extension.viewModel
 import tuppersoft.com.adoptme.core.navigation.Navigation
 import tuppersoft.com.adoptme.core.platform.GlobalFragment
+import tuppersoft.com.data.repositories.SharedPreferencesRepository
 
 
 class ProfileFragment : GlobalFragment() {
@@ -42,6 +44,10 @@ class ProfileFragment : GlobalFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.rvListMenu.layoutManager = LinearLayoutManager(context)
+
+        view.ivAvatar.loadFromUrl(SharedPreferencesRepository.loadPreference(requireContext(), "URL", ""))
+
+
         view.rvListMenu.adapter = ProfileAdapter(createListMenu()) { option ->
 
             when (option.id) {

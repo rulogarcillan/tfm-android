@@ -15,6 +15,6 @@
     <style name="subTitleLogin">
         <item name="android:textSize">14sp</item>
     </style>
-    <!--/*********** End Login   *********/-->
+    <!--/*********** End DoLogin   *********/-->
 
 </resources>
