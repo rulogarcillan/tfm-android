@@ -25,6 +25,7 @@
     <string name="personal_data_gender">Gender</string>
     <string name="personal_data_delete_user_title">If you want to delete your account and all associated data, click on the following link</string>
     <string name="personal_data_delete_user_link">Delete my adoptme account</string>
+    <string name="personal_data_title">Personal data</string>
 
 
 </resources>
