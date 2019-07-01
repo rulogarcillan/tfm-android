@@ -4,6 +4,7 @@ package tuppersoft.com.data.repositories
 
 import android.content.Context
 import android.preference.PreferenceManager
+import com.google.gson.Gson
 
 
 object SharedPreferencesRepository {
@@ -26,6 +27,29 @@ object SharedPreferencesRepository {
         }
         editor.apply()
     }
+
+    /**
+     * Guarda un objeto
+     */
+    fun savePreferenceObject(mContext: Context, key: String, value: Any) {
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext)
+        val editor = sharedPreferences.edit()
+        val gson = Gson()
+        val json = gson.toJson(value)
+        editor.putString(key, json)
+        editor.apply()
+    }
+
+    /**
+     * Carga cualquier valor primitivo del shared preferences
+     */
+    fun  loadPreferenceObject(mContext: Context, key: String, defaultValue: Any): Any {
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext)
+        val gson = Gson()
+        val json = sharedPreferences.getString(key, "")
+        return gson.fromJson(json, defaultValue::class.java)
+    }
+
 
     /**
      * Carga cualquier valor primitivo del shared preferences

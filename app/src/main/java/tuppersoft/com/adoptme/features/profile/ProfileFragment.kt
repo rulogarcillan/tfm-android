@@ -17,11 +17,14 @@ import tuppersoft.com.adoptme.core.extension.viewModel
 import tuppersoft.com.adoptme.core.navigation.Navigation
 import tuppersoft.com.adoptme.core.platform.GlobalFragment
 import tuppersoft.com.data.repositories.SharedPreferencesRepository
+import tuppersoft.com.domain.entities.UserDto
 
 
 class ProfileFragment : GlobalFragment() {
 
     lateinit var profileViewModel: ProfileViewModel
+
+    val user: UserDto by lazy { SharedPreferencesRepository.loadPreferenceObject(requireContext(), "USER", UserDto()) as UserDto }
 
     companion object {
         fun newInstance() = ProfileFragment()
@@ -30,6 +33,8 @@ class ProfileFragment : GlobalFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         appComponent.inject(this)
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
+        view.tvEmail.text = user.email
+        view.tvName.text = "${context?.getString(R.string.hi).toString()} ${user.name}"
         configStatusBar()
         initViewModel()
         return view
@@ -45,13 +50,13 @@ class ProfileFragment : GlobalFragment() {
         super.onViewCreated(view, savedInstanceState)
         view.rvListMenu.layoutManager = LinearLayoutManager(context)
 
-        view.ivAvatar.loadFromUrl(SharedPreferencesRepository.loadPreference(requireContext(), "URL", ""))
+        view.ivAvatar.loadFromUrl(user.photoUrl)
 
 
         view.rvListMenu.adapter = ProfileAdapter(createListMenu()) { option ->
 
             when (option.id) {
-                ProfileItemMenu.MENU_PERSONAL_DATA -> "TODO".log()
+                ProfileItemMenu.MENU_PERSONAL_DATA -> activity?.let { mActivity -> Navigation.goPersonalDataActivity(mActivity, false) }
                 ProfileItemMenu.MENU_TERMS -> activity?.let { mActivity -> Navigation.goTermCondition(mActivity) }
                 ProfileItemMenu.MENU_LICENSE -> activity?.let { mActivity -> Navigation.goLibraries(mActivity) }
                 ProfileItemMenu.MENU_CHANGELOG -> "TODO".log()

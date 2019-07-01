@@ -9,6 +9,7 @@ import com.mikepenz.aboutlibraries.LibsBuilder
 import tuppersoft.com.adoptme.core.extension.finishOrNot
 import tuppersoft.com.adoptme.features.login.LoginActivity
 import tuppersoft.com.adoptme.features.main.MainActivity
+import tuppersoft.com.adoptme.features.personaldata.PersonalDataActivity
 import tuppersoft.com.adoptme.features.profile.ProfileFragment
 
 
@@ -36,6 +37,12 @@ object Navigation {
         transaction.replace(tuppersoft.com.adoptme.R.id.idFrameLayout, profileFragment, ProfileFragment::class.java.name)
         transaction.disallowAddToBackStack()
         transaction.commit()
+    }
+
+    fun goPersonalDataActivity(mActivity: Activity, finish: Boolean = true) {
+        val intent = Intent(mActivity, PersonalDataActivity::class.java)
+        mActivity.startActivity(intent)
+        mActivity.finishOrNot(finish)
     }
 
     fun goLibraries(mActivity: Activity) {

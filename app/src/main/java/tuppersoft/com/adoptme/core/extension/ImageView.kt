@@ -13,8 +13,8 @@ import tuppersoft.com.adoptme.core.platform.GlideApp
 
 fun ImageView.loadFromUrl(url: String?, width: Int? = null, height: Int? = null) {
     if (width != null && height != null) {
-        GlideApp.with(context).load(url).placeholder(R.drawable.ic_img_placeholder).override(width, height).into(this)
+        GlideApp.with(context).load(url).placeholder(R.drawable.ic_profile).override(width, height).into(this)
     } else {
-        GlideApp.with(context).load(url).placeholder(R.drawable.ic_img_placeholder).into(this)
+        GlideApp.with(context).load(url).placeholder(R.drawable.ic_profile).into(this)
     }
 }

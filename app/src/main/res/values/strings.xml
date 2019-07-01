@@ -16,10 +16,15 @@
     <string name="menu_changelog">Changelog</string>
     <string name="menu_logout">Logout</string>
 
+    <string name="hi">Hi</string>
 
-    list.add(R.drawable.ic_people,)
-    list.add(R.drawable.ic_terms,)
-    list.add(R.drawable.ic_copyleft,)
-    list.add(R.drawable.ic_changelog,)
-    list.add(R.drawable.ic_logout,)
+    <string name="personal_data_name">Name</string>
+    <string name="personal_data_email">Email</string>
+    <string name="personal_data_about_me">About me</string>
+    <string name="personal_data_postal_code">Postal code</string>
+    <string name="personal_data_gender">Gender</string>
+    <string name="personal_data_delete_user_title">If you want to delete your account and all associated data, click on the following link</string>
+    <string name="personal_data_delete_user_link">Delete my adoptme account</string>
+
+
 </resources>

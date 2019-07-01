@@ -53,7 +53,7 @@ class LoginActivity : GlobalActivity() {
     fun handleLogin(userDto: UserDto?) {
         if (userDto != null) {
             Navigation.goMainActivity(this)
-            SharedPreferencesRepository.savePreference(this, "URL", userDto.photoUrl)
+            SharedPreferencesRepository.savePreferenceObject(this, "USER", userDto)
         }
     }
 

@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
-        android:name="tuppersoft.com.adoptme.App"
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,9 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
+        <activity android:name=".features.personaldata.PersonalDataActivity">
+        </activity>
         <activity
-            android:name="tuppersoft.com.adoptme.features.splash.SplashActivity"
+            android:name=".features.splash.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -27,11 +28,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-        <activity android:name="tuppersoft.com.adoptme.features.login.LoginActivity">
+        <activity android:name=".features.login.LoginActivity">
         </activity>
-
-        <activity android:name="tuppersoft.com.adoptme.features.main.MainActivity">
+        <activity android:name=".features.main.MainActivity">
         </activity>
     </application>
 
