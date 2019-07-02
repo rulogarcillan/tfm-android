@@ -35,8 +35,8 @@ class PersonalDataActivity : GlobalActivity() {
         mActionBar?.setDisplayShowTitleEnabled(true)
         mActionBar?.title = getString(tuppersoft.com.adoptme.R.string.personal_data_title)
         user = SharedPreferencesRepository.loadPreferenceObject(this, "USER", UserDto()) as UserDto
-        initViewModel()
         setData()
+        initViewModel()
         initEditfields()
     }
 
@@ -48,14 +48,13 @@ class PersonalDataActivity : GlobalActivity() {
 
     fun handleSaveUser(userDto: UserDto) {
         user = userDto
-        SharedPreferencesRepository.savePreferenceObject(this, "USER", userDto)
+        SharedPreferencesRepository.savePreferenceObject(this, "USER", user)
     }
 
     private fun setData() {
         tvName.text = user.name
         tvEmail.text = user.email
         etPostalCode.setText(user.zip)
-
     }
 
     private fun initEditfields() {
