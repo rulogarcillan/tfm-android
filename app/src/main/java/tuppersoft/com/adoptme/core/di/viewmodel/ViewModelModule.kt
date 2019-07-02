@@ -7,6 +7,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 import tuppersoft.com.adoptme.features.login.LoginViewModel
+import tuppersoft.com.adoptme.features.personaldata.PersonalDataViewModel
 
 @Module
 abstract class ViewModelModule {
@@ -18,6 +19,12 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(LoginViewModel::class)
     abstract fun bindLoginViewModel(viewModel: LoginViewModel): ViewModel
+
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(PersonalDataViewModel::class)
+    abstract fun bindPersonalDataViewModel(viewModel: PersonalDataViewModel): ViewModel
 
 }
 
