@@ -54,6 +54,8 @@ class PersonalDataActivity : GlobalActivity() {
     private fun setData() {
         tvName.text = user.name
         tvEmail.text = user.email
+        etPostalCode.setText(user.zip)
+
     }
 
     private fun initEditfields() {
@@ -62,7 +64,7 @@ class PersonalDataActivity : GlobalActivity() {
             etPostalCode.requestFocus()
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.showSoftInput(etPostalCode, InputMethodManager.SHOW_IMPLICIT)
-            user.zip = tvZipCode.text.toString()
+            user.zip = etPostalCode.text.toString()
             personalDataViewModel.saveUSer(user)
         }
 
