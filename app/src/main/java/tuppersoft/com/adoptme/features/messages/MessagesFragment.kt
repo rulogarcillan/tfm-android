@@ -5,18 +5,26 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.view_toolbar.view.*
 import tuppersoft.com.adoptme.R
+import tuppersoft.com.adoptme.core.platform.GlobalFragment
+import tuppersoft.com.adoptme.features.home.HomeFragment
 
 
-class MessagesFragment : Fragment() {
+class MessagesFragment : GlobalFragment() {
+
+
+    lateinit var tittle: String
+
 
     companion object {
+        private const val TITTLE = "title"
+
         @JvmStatic
-        fun newInstance() =
-            MessagesFragment().apply {
+        fun newInstance(tittle: Int) =
+            HomeFragment().apply {
                 arguments = Bundle().apply {
-                    //putString(ARG_PARAM1, param1)
+                    putInt(TITTLE, tittle)
                     //putString(ARG_PARAM2, param2)
                 }
             }
@@ -25,13 +33,22 @@ class MessagesFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            //param1 = it.getString(ARG_PARAM1)
+            val mContext = context
+            mContext?.let { mContext ->
+                tittle = mContext.getString(it.getInt(TITTLE))
+            }
             //param2 = it.getString(ARG_PARAM2)
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        view.toolbar.title = tittle
+    }
 
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        appComponent.inject(this)
         return inflater.inflate(R.layout.fragment_messages, container, false)
     }
 

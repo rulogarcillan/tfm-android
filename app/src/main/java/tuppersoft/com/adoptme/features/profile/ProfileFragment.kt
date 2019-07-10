@@ -89,7 +89,7 @@ class ProfileFragment : GlobalFragment() {
         val mActivity = activity
         mActivity?.let {
             val window = mActivity.window
-            window.statusBarColor = ContextCompat.getColor(mActivity, tuppersoft.com.adoptme.R.color.primaryBlue)
+            window.statusBarColor = ContextCompat.getColor(mActivity, R.color.primaryBlue)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 val decor = window.decorView
                 decor.systemUiVisibility = 0

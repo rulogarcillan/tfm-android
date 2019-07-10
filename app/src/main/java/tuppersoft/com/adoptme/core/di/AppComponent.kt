@@ -4,7 +4,11 @@ import dagger.Component
 import tuppersoft.com.adoptme.App
 import tuppersoft.com.adoptme.core.di.repositories.RepositoriesModule
 import tuppersoft.com.adoptme.core.di.viewmodel.ViewModelModule
+import tuppersoft.com.adoptme.features.bookmarks.BookmarksFragment
+import tuppersoft.com.adoptme.features.discovery.DiscoveryFragment
+import tuppersoft.com.adoptme.features.home.HomeFragment
 import tuppersoft.com.adoptme.features.login.LoginActivity
+import tuppersoft.com.adoptme.features.messages.MessagesFragment
 import tuppersoft.com.adoptme.features.personaldata.PersonalDataActivity
 import tuppersoft.com.adoptme.features.profile.ProfileFragment
 import javax.inject.Singleton
@@ -16,8 +20,13 @@ interface AppComponent {
 
     fun inject(app: App)
     fun inject(loginActivity: LoginActivity)
-    fun inject(profileFragment: ProfileFragment)
-    fun inject(personalDataActivity: PersonalDataActivity)
+    fun inject(activity: PersonalDataActivity)
+
+    fun inject(fragment: HomeFragment)
+    fun inject(fragment: DiscoveryFragment)
+    fun inject(fragment: BookmarksFragment)
+    fun inject(fragment: MessagesFragment)
+    fun inject(fragment: ProfileFragment)
 
 
 }

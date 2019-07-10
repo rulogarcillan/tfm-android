@@ -6,6 +6,7 @@ import android.net.Uri
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.fragment.app.FragmentManager
 import com.mikepenz.aboutlibraries.LibsBuilder
+import tuppersoft.com.adoptme.R
 import tuppersoft.com.adoptme.core.extension.finishOrNot
 import tuppersoft.com.adoptme.features.bookmarks.BookmarksFragment
 import tuppersoft.com.adoptme.features.discovery.DiscoveryFragment
@@ -37,34 +38,34 @@ object Navigation {
 
 
     fun goHomeFragment(manager: FragmentManager) {
-        val fragment = HomeFragment.newInstance()
+        val fragment = HomeFragment.newInstance(R.string.home)
         val transaction = manager.beginTransaction()
-        transaction.replace(tuppersoft.com.adoptme.R.id.idFrameLayout, fragment, HomeFragment::class.java.name)
+        transaction.replace(R.id.idFrameLayout, fragment, HomeFragment::class.java.name)
         transaction.disallowAddToBackStack()
         transaction.commit()
     }
 
 
     fun goDiscoveryFragment(manager: FragmentManager) {
-        val fragment = DiscoveryFragment.newInstance()
+        val fragment = DiscoveryFragment.newInstance(R.string.discovery)
         val transaction = manager.beginTransaction()
-        transaction.replace(tuppersoft.com.adoptme.R.id.idFrameLayout, fragment, DiscoveryFragment::class.java.name)
+        transaction.replace(R.id.idFrameLayout, fragment, DiscoveryFragment::class.java.name)
         transaction.disallowAddToBackStack()
         transaction.commit()
     }
 
     fun goBookmarksFragment(manager: FragmentManager) {
-        val fragment = BookmarksFragment.newInstance()
+        val fragment = BookmarksFragment.newInstance(R.string.bookmarks)
         val transaction = manager.beginTransaction()
-        transaction.replace(tuppersoft.com.adoptme.R.id.idFrameLayout, fragment, BookmarksFragment::class.java.name)
+        transaction.replace(R.id.idFrameLayout, fragment, BookmarksFragment::class.java.name)
         transaction.disallowAddToBackStack()
         transaction.commit()
     }
 
     fun goMessagesFragment(manager: FragmentManager) {
-        val fragment = MessagesFragment.newInstance()
+        val fragment = MessagesFragment.newInstance(R.string.messages)
         val transaction = manager.beginTransaction()
-        transaction.replace(tuppersoft.com.adoptme.R.id.idFrameLayout, fragment, MessagesFragment::class.java.name)
+        transaction.replace(R.id.idFrameLayout, fragment, MessagesFragment::class.java.name)
         transaction.disallowAddToBackStack()
         transaction.commit()
     }
@@ -72,7 +73,7 @@ object Navigation {
     fun goProfileFragment(manager: FragmentManager) {
         val fragment = ProfileFragment.newInstance()
         val transaction = manager.beginTransaction()
-        transaction.replace(tuppersoft.com.adoptme.R.id.idFrameLayout, fragment, ProfileFragment::class.java.name)
+        transaction.replace(R.id.idFrameLayout, fragment, ProfileFragment::class.java.name)
         transaction.disallowAddToBackStack()
         transaction.commit()
     }
