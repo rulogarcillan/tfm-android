@@ -27,5 +27,8 @@
     <string name="personal_data_delete_user_link">Delete my adoptme account</string>
     <string name="personal_data_title">Personal data</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

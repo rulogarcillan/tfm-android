@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import kotlinx.android.synthetic.main.activity_personal_data.*
 import kotlinx.android.synthetic.main.view_toolbar.*
+import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent
 import tuppersoft.com.adoptme.core.di.viewmodel.ViewModelFactory
 import tuppersoft.com.adoptme.core.extension.observe
 import tuppersoft.com.adoptme.core.extension.viewModel
@@ -38,6 +39,12 @@ class PersonalDataActivity : GlobalActivity() {
         setData()
         initViewModel()
         initEditfields()
+
+        KeyboardVisibilityEvent.setEventListener(this) {
+            if (!it) {
+                saveAllDate()
+            }
+        }
     }
 
     private fun initViewModel() {
@@ -55,29 +62,34 @@ class PersonalDataActivity : GlobalActivity() {
         tvName.text = user.name
         tvEmail.text = user.email
         etPostalCode.setText(user.zip)
+        etAboutMe.setText(user.description)
     }
 
     private fun initEditfields() {
         ivEditPostalCode.setOnClickListener {
+            etAboutMe.isEnabled = false
             etPostalCode.isEnabled = true
             etPostalCode.requestFocus()
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.showSoftInput(etPostalCode, InputMethodManager.SHOW_IMPLICIT)
-            user.zip = etPostalCode.text.toString()
-            personalDataViewModel.saveUSer(user)
         }
 
+        ivEditAboutMe.setOnClickListener {
+            etAboutMe.isEnabled = true
+            etPostalCode.isEnabled = false
+            etAboutMe.requestFocus()
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.showSoftInput(etAboutMe, InputMethodManager.SHOW_IMPLICIT)
+        }
+    }
+
+    private fun saveAllDate() {
+        etPostalCode.isEnabled = false
+        etAboutMe.isEnabled = false
+        user.zip = etPostalCode.text.toString()
+        user.description = etAboutMe.text.toString()
+        personalDataViewModel.saveUSer(user)
     }
 
 
-    /*   override fun onConfigurationChanged(newConfig: Configuration) {
-           super.onConfigurationChanged(newConfig)
-
-           // Checks whether a hardware keyboard is available
-           if (newConfig.hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_NO) {
-               Toast.makeText(this, "keyboard visible", Toast.LENGTH_SHORT).show()
-           } else if (newConfig.hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_YES) {
-               Toast.makeText(this, "keyboard hidden", Toast.LENGTH_SHORT).show()
-           }
-       }*/
 }

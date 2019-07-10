@@ -16,13 +16,13 @@
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/navigation_bookbark"
+        android:id="@+id/navigation_bookmark"
         android:icon="@drawable/ic_bookmark_menu"
         android:title="Bookmarks"
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/navigation_top"
+        android:id="@+id/navigation_messages"
         android:icon="@drawable/ic_message_menu"
         android:title="Messages"
         app:showAsAction="ifRoom"/>

@@ -47,6 +47,7 @@ class LoginActivity : GlobalActivity() {
     private fun initViewModel() {
         loginViewModel = viewModel(viewModelFactory) {
             observe(userDto, ::handleLogin)
+            observe(logged, ::handleIsLogin)
         }
     }
 
@@ -54,6 +55,12 @@ class LoginActivity : GlobalActivity() {
         if (userDto != null) {
             Navigation.goMainActivity(this)
             SharedPreferencesRepository.savePreferenceObject(this, "USER", userDto)
+        }
+    }
+
+    fun handleIsLogin(logged: Boolean) {
+        if (logged) {
+            Navigation.goMainActivity(this)
         }
     }
 

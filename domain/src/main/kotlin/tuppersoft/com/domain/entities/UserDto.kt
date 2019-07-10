@@ -9,8 +9,7 @@ data class UserDto(
     var photoUrl: String = "",
     var emailVerified: Boolean = false,
     var description: String = "",
-    var zip: String = "",
-    var gender: String = ""
+    var zip: String = ""
 ) : Serializable
 
 

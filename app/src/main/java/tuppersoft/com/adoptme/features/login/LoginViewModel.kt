@@ -11,6 +11,7 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(private val isLogin: IsLogin, private val login: DoLogin) : GlobalViewModel() {
 
     val userDto: MutableLiveData<UserDto> = MutableLiveData()
+    val logged: MutableLiveData<Boolean> = MutableLiveData()
 
     init {
         isLogin()
@@ -18,12 +19,12 @@ class LoginViewModel @Inject constructor(private val isLogin: IsLogin, private v
 
     private fun isLogin() {
         isLogin.invoke(None) {
-            userDto.value = it
+            logged.value = it != null
         }
     }
 
     fun login(token: String) {
-        login.invoke(DoLogin.Params(token)){
+        login.invoke(DoLogin.Params(token)) {
             userDto.value = it
         }
     }

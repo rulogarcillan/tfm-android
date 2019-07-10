@@ -91,52 +91,7 @@
 
             <include layout="@layout/divider"/>
 
-            <LinearLayout
-                android:id="@+id/llBirth"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:minHeight="72dp"
-                android:orientation="horizontal"
-                android:paddingStart="20dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical">
-
-                    <TextView
-                        style="@style/fontRegular"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/personal_data_about_me"
-                        android:textSize="14sp"/>
-
-                    <TextView
-                        android:id="@+id/tvBirth"
-                        style="@style/fontRegular"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:textColor="@color/darkGrey"
-                        android:textSize="14sp"/>
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
-                    android:tint="@color/darkGrey"
-                    app:srcCompat="@drawable/ic_edit"/>
-            </LinearLayout>
-
-            <include layout="@layout/divider"/>
-
-            <LinearLayout
+                       <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
                 android:gravity="center_vertical"
@@ -185,10 +140,11 @@
             <include layout="@layout/divider"/>
 
             <LinearLayout
-                android:id="@+id/llGender"
+                android:id="@+id/llBirth"
                 android:layout_width="match_parent"
-                android:layout_height="72dp"
+                android:layout_height="wrap_content"
                 android:gravity="center_vertical"
+                android:minHeight="72dp"
                 android:orientation="horizontal"
                 android:paddingStart="20dp">
 
@@ -203,27 +159,32 @@
                         style="@style/fontRegular"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/personal_data_gender"
+                        android:text="@string/personal_data_about_me"
                         android:textSize="14sp"/>
 
-                    <TextView
-                        android:id="@+id/tvGender"
-                        style="@style/fontRegular"
+
+                    <EditText
+                        android:id="@+id/etAboutMe"
+                        style="@style/edittext_grey"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:textColor="@color/darkGrey"
-                        android:textSize="14sp"/>
+                        android:enabled="false"
+                        android:imeOptions="actionDone"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:textSize="14sp"
+                        android:theme="@style/appcolor_cursor"/>
                 </LinearLayout>
 
                 <ImageView
+                    android:id="@+id/ivEditAboutMe"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp"
                     android:tint="@color/darkGrey"
-
                     app:srcCompat="@drawable/ic_edit"/>
             </LinearLayout>
 

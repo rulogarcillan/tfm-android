@@ -12,6 +12,7 @@ class MainActivity : GlobalActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        Navigation.goHomeFragment(supportFragmentManager)
         initNavigation()
     }
 
@@ -19,10 +20,10 @@ class MainActivity : GlobalActivity() {
 
         idNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.navigation_home -> ""
-                R.id.navigation_discovery_menu -> ""
-                R.id.navigation_bookbark -> ""
-                R.id.navigation_top -> ""
+                R.id.navigation_home -> Navigation.goHomeFragment(supportFragmentManager)
+                R.id.navigation_discovery_menu -> Navigation.goDiscoveryFragment(supportFragmentManager)
+                R.id.navigation_bookmark -> Navigation.goBookmarksFragment(supportFragmentManager)
+                R.id.navigation_messages -> Navigation.goMessagesFragment(supportFragmentManager)
                 R.id.navigation_profile -> Navigation.goProfileFragment(supportFragmentManager)
             }
             true
