@@ -80,9 +80,10 @@ dependencies {
     kapt "androidx.lifecycle:lifecycle-compiler:2.2.0-alpha02"
 
 
-    //
+    //About
     implementation "com.mikepenz:aboutlibraries:7.0.0"
 
+    //keyboard event
     implementation 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:1.0.1'
 
 

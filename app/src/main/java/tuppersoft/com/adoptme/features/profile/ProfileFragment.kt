@@ -98,5 +98,6 @@ class ProfileFragment : GlobalFragment() {
         }
     }
 
+    override fun showToolbar() = false
 
 }

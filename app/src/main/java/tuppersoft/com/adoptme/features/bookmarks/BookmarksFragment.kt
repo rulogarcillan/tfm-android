@@ -1,15 +1,19 @@
 package tuppersoft.com.adoptme.features.bookmarks
 
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.view_toolbar.*
 import kotlinx.android.synthetic.main.view_toolbar.view.*
 import tuppersoft.com.adoptme.R
 import tuppersoft.com.adoptme.core.platform.GlobalFragment
+import tuppersoft.com.adoptme.features.discovery.DiscoveryFragment
 import tuppersoft.com.adoptme.features.home.HomeFragment
+import tuppersoft.com.adoptme.features.main.MainActivity
 
 
 class BookmarksFragment : GlobalFragment() {
@@ -37,14 +41,13 @@ class BookmarksFragment : GlobalFragment() {
             val mContext = context
             mContext?.let { mContext ->
                 tittle = mContext.getString(it.getInt(TITTLE))
+                (context as MainActivity).tvTittle.text = tittle
             }
-            //param2 = it.getString(ARG_PARAM2)
         }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.toolbar.title = tittle
     }
 
 
@@ -52,5 +55,7 @@ class BookmarksFragment : GlobalFragment() {
         appComponent.inject(this)
         return inflater.inflate(R.layout.fragment_bookmarks, container, false)
     }
+
+
 
 }
