@@ -6,10 +6,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.view_toolbar.*
+import kotlinx.android.synthetic.main.view_toolbar_center.*
 import tuppersoft.com.adoptme.R
 import tuppersoft.com.adoptme.core.platform.GlobalFragment
-import tuppersoft.com.adoptme.features.discovery.DiscoveryFragment
 import tuppersoft.com.adoptme.features.home.HomeFragment
 import tuppersoft.com.adoptme.features.main.MainActivity
 

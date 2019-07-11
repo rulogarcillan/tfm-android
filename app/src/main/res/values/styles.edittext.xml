@@ -19,4 +19,11 @@
         <item name="android:textColorHint">@color/warmGrey</item>
     </style>
 
+    <style name="custom_outlinebox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@color/selector_textview</item>
+        <item name="hintTextColor">@color/secondaryColor</item>
+
+    </style>
+
+
 </resources>

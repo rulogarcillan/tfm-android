@@ -27,6 +27,12 @@
     </style>
 
 
+    <style name="toolbar">
+        <item name="fontFamily">?attr/fontTypeBold</item>
+        <item name="android:fontFamily">?attr/fontTypeBold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
     <style name="textHeadline1" parent="TextAppearance.MaterialComponents.Headline1">
         <item name="fontFamily">?attr/fontTypeLight</item>
         <item name="android:fontFamily">?attr/fontTypeLight</item>

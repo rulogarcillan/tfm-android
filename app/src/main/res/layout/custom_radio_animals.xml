@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/select1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:minWidth="64dp"
+        android:minHeight="64dp"
+        app:layout_constraintEnd_toStartOf="@id/select2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_dog"/>
+
+    <TextView
+        android:id="@+id/selectText1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/dog"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@id/select1"
+        app:layout_constraintStart_toStartOf="@id/select1"
+        app:layout_constraintTop_toBottomOf="@id/select1"/>
+
+    <TextView
+        android:id="@+id/selectText2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/cat"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@id/select2"
+        app:layout_constraintStart_toStartOf="@id/select2"
+        app:layout_constraintTop_toBottomOf="@id/select2"/>
+
+    <TextView
+        android:id="@+id/selectText3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/rabbit"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@id/select3"
+        app:layout_constraintStart_toStartOf="@id/select3"
+        app:layout_constraintTop_toBottomOf="@id/select4"/>
+
+    <TextView
+        android:id="@+id/selectText4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/other"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@id/select4"
+        app:layout_constraintStart_toStartOf="@id/select4"
+        app:layout_constraintTop_toBottomOf="@id/select4"/>
+
+    <ImageView
+        android:id="@+id/select2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:minWidth="64dp"
+        android:minHeight="64dp"
+        app:layout_constraintEnd_toStartOf="@+id/select3"
+        app:layout_constraintStart_toEndOf="@+id/select1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_cat"
+    />
+
+    <ImageView
+        android:id="@+id/select3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:minWidth="64dp"
+        android:minHeight="64dp"
+        app:layout_constraintEnd_toStartOf="@+id/select4"
+        app:layout_constraintStart_toEndOf="@+id/select2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_rabbit"/>
+
+    <ImageView
+        android:id="@+id/select4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:minWidth="64dp"
+        android:minHeight="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/select3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_others"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

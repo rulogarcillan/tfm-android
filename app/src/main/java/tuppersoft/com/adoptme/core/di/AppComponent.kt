@@ -4,6 +4,7 @@ import dagger.Component
 import tuppersoft.com.adoptme.App
 import tuppersoft.com.adoptme.core.di.repositories.RepositoriesModule
 import tuppersoft.com.adoptme.core.di.viewmodel.ViewModelModule
+import tuppersoft.com.adoptme.features.add.AddActivity
 import tuppersoft.com.adoptme.features.bookmarks.BookmarksFragment
 import tuppersoft.com.adoptme.features.discovery.DiscoveryFragment
 import tuppersoft.com.adoptme.features.home.HomeFragment
@@ -21,6 +22,7 @@ interface AppComponent {
     fun inject(app: App)
     fun inject(loginActivity: LoginActivity)
     fun inject(activity: PersonalDataActivity)
+    fun inject(activity: AddActivity)
 
     fun inject(fragment: HomeFragment)
     fun inject(fragment: DiscoveryFragment)

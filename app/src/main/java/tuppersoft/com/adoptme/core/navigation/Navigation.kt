@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentManager
 import com.mikepenz.aboutlibraries.LibsBuilder
 import tuppersoft.com.adoptme.R
 import tuppersoft.com.adoptme.core.extension.finishOrNot
+import tuppersoft.com.adoptme.features.add.AddActivity
 import tuppersoft.com.adoptme.features.bookmarks.BookmarksFragment
 import tuppersoft.com.adoptme.features.discovery.DiscoveryFragment
 import tuppersoft.com.adoptme.features.home.HomeFragment
@@ -32,6 +33,12 @@ object Navigation {
 
     fun goMainActivity(mActivity: Activity, finish: Boolean = true) {
         val intent = Intent(mActivity, MainActivity::class.java)
+        mActivity.startActivity(intent)
+        mActivity.finishOrNot(finish)
+    }
+
+    fun goAddActivity(mActivity: Activity, finish: Boolean = false) {
+        val intent = Intent(mActivity, AddActivity::class.java)
         mActivity.startActivity(intent)
         mActivity.finishOrNot(finish)
     }

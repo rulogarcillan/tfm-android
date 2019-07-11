@@ -34,6 +34,19 @@
     <string name="bookmarks">Bookmarks</string>
     <string name="messages">Messages</string>
     <string name="profile">Profile</string>
+    <string name="add">Add</string>
+    <string name="dog">Dog</string>
+    <string name="cat">Cat</string>
+    <string name="other">Other</string>
+    <string name="rabbit">Rabbit</string>
+    <string name="name">Name</string>
+    <string name="age">Age</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+    <string name="kind_of_animal">Kind of animal</string>
+    <string name="sex">Sex</string>
+    <string name="information">Information</string>
+    <string name="save">save</string>
 
 
 </resources>
