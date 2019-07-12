@@ -18,7 +18,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
-
         <TextView
             android:id="@+id/tittle0"
             style="@style/fontBold"
@@ -28,8 +27,7 @@
             android:text="@string/photos"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/myToolbar"
-        />
+            app:layout_constraintTop_toBottomOf="@+id/myToolbar"/>
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,6 +35,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_default"
+            android:paddingTop="@dimen/margin_default"
+            android:paddingBottom="@dimen/margin_default"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tittle0">
@@ -45,55 +45,69 @@
                 android:id="@+id/card1"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                app:layout_constraintEnd_toStartOf="@id/image2"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toStartOf="@id/card2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
+
                 <ImageView
                     android:id="@+id/image1"
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:minWidth="64dp"
-                    android:minHeight="64dp"
-                    android:tint="@color/lightGrey"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
                     app:srcCompat="@drawable/ic_img_placeholder"/>
             </com.google.android.material.card.MaterialCardView>
-            <ImageView
-                android:id="@+id/image2"
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card2"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:minWidth="64dp"
-                android:minHeight="64dp"
-                android:tint="@color/lightGrey"
-                app:layout_constraintEnd_toStartOf="@+id/image3"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toStartOf="@+id/card3"
                 app:layout_constraintStart_toEndOf="@+id/card1"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_img_placeholder"
-            />
+                app:layout_constraintTop_toTopOf="parent">
+                <ImageView
+                    android:id="@+id/image2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/ic_img_placeholder"/>
+            </com.google.android.material.card.MaterialCardView>
 
-            <ImageView
-                android:id="@+id/image3"
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card3"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:minWidth="64dp"
-                android:minHeight="64dp"
-                android:tint="@color/lightGrey"
-                android:elevation="0dp"
-                app:layout_constraintEnd_toStartOf="@+id/image4"
-                app:layout_constraintStart_toEndOf="@+id/image2"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_img_placeholder"/>
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toStartOf="@+id/card4"
+                app:layout_constraintStart_toEndOf="@+id/card2"
+                app:layout_constraintTop_toTopOf="parent">
+                <ImageView
+                    android:id="@+id/image3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/ic_img_placeholder"/>
+            </com.google.android.material.card.MaterialCardView>
 
-            <ImageView
-                android:id="@+id/image4"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card4"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:minWidth="64dp"
-                android:minHeight="64dp"
-                android:tint="@color/lightGrey"
+                app:cardElevation="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/image3"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_img_placeholder"/>
+                app:layout_constraintStart_toEndOf="@+id/card3"
+                app:layout_constraintTop_toTopOf="parent">
+                <ImageView
+                    android:id="@+id/image4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/ic_img_placeholder"/>
+            </com.google.android.material.card.MaterialCardView>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
