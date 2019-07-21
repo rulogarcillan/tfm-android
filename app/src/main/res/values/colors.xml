@@ -40,4 +40,8 @@
     <color name="splashColor">#15202b</color>
 
 
+    <color name="loadingColor">#80000000</color>
+
+
+
 </resources>

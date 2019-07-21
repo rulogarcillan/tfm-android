@@ -32,6 +32,7 @@ android {
 
     buildTypes.each {
         it.buildConfigField 'String', 'GoogleSecAPIKEY', GoolgeAPIKey
+        it.buildConfigField 'String', 'BASE_URL', "\"https://api.imgur.com\""
     }
 
     buildTypes {

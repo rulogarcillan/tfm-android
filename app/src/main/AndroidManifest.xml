@@ -4,13 +4,14 @@
           package="tuppersoft.com.adoptme">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-feature android:name="android.hardware.camera"
-                  android:required="true" />
+    <uses-feature android:name="android.hardware.camera" android:required="true"/>
 
     <application
         android:name=".App"
         android:allowBackup="true"
+        android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -18,24 +19,45 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".features.add.AddActivity">
-        </activity>
-        <activity android:name=".features.personaldata.PersonalDataActivity">
-        </activity>
+
         <activity
             android:name=".features.splash.SplashActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".features.login.LoginActivity">
-        </activity>
-        <activity android:name=".features.main.MainActivity">
-        </activity>
+
+        <activity android:name=".features.login.LoginActivity"
+                  android:configChanges="orientation|keyboardHidden"
+                  android:screenOrientation="portrait"/>
+
+        <activity android:name=".features.main.MainActivity"
+                  android:configChanges="orientation|keyboardHidden"
+                  android:screenOrientation="portrait"/>
+
+        <activity android:name=".features.add.AddActivity"
+                  android:configChanges="orientation|keyboardHidden"
+                  android:screenOrientation="portrait"/>
+
+        <activity android:name=".features.personaldata.PersonalDataActivity"
+                  android:configChanges="orientation|keyboardHidden"
+                  android:screenOrientation="portrait"/>
+
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="tuppersoft.com.adoptme.fileprofider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path"/>
+        </provider>
+
     </application>
 
 </manifest>

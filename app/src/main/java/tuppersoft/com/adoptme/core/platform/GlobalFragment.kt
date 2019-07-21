@@ -49,9 +49,9 @@ abstract class GlobalFragment : Fragment() {
         super.onAttach(context)
         if (context is MainActivity) {
             if (showToolbar()) {
-                context.myToolbar.visibility = View.VISIBLE
+                context.myToolbar?.let { it.visibility = View.VISIBLE }
             } else {
-                context.myToolbar.visibility = View.GONE
+                context.myToolbar?.let { it.visibility = View.GONE }
             }
 
         }

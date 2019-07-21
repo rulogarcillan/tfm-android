@@ -1,6 +1,8 @@
 package tuppersoft.com.adoptme.core.extension
 
 import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import java.io.File
 import java.text.DateFormat
 
@@ -17,3 +19,7 @@ fun Context.getAppTimeStamp(): String {
 
     return timeStamp
 }
+
+val Context.networkInfo: NetworkInfo? get() = (this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).activeNetworkInfo
+
+//context.networkInfo?.isConnectedOrConnecting

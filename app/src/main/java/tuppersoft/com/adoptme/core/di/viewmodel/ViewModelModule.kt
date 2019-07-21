@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
+import tuppersoft.com.adoptme.features.add.AddViewModel
 import tuppersoft.com.adoptme.features.login.LoginViewModel
 import tuppersoft.com.adoptme.features.personaldata.PersonalDataViewModel
 
@@ -25,6 +26,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(PersonalDataViewModel::class)
     abstract fun bindPersonalDataViewModel(viewModel: PersonalDataViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(AddViewModel::class)
+    abstract fun bindAddViewModel(viewModel: AddViewModel): ViewModel
 
 }
 
