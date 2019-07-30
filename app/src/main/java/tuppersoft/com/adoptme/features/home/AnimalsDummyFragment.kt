@@ -42,7 +42,7 @@ class AnimalsDummyFragment : Fragment() {
         if (page.uid == "1")
             view.llroot.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.primaryColor))
         else
-            view.llroot.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.primaryColor))
+            view.llroot.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.secondaryColor))
     }
 
     private fun getBundle(savedInstanceState: Bundle?) {
