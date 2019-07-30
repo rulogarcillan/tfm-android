@@ -45,7 +45,8 @@ class HomeFragment : GlobalFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.efbAdd.setOnClickListener { activity?.let { Navigation.goAddActivity(it) } }
+        createPages()
+        initAdapter(view)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -56,10 +57,10 @@ class HomeFragment : GlobalFragment() {
     private fun createPages() {
         pages = ArrayList()
         pages.add(
-            RecordDto()
+            RecordDto("1")
         )
         pages.add(
-            RecordDto()
+            RecordDto("2")
         )
     }
 

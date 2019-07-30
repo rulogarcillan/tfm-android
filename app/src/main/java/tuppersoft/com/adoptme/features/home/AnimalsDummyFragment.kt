@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.dummy_fragment.view.llroot
 import tuppersoft.com.adoptme.R
 import tuppersoft.com.domain.entities.RecordDto
 
@@ -31,7 +33,16 @@ class AnimalsDummyFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.dummy_fragment, container, false)
+        getBundle(savedInstanceState)
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        if (page.uid == "1")
+            view.llroot.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.primaryColor))
+        else
+            view.llroot.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.primaryColor))
     }
 
     private fun getBundle(savedInstanceState: Bundle?) {
