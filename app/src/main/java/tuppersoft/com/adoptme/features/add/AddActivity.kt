@@ -20,9 +20,11 @@ import tuppersoft.com.adoptme.core.di.viewmodel.ViewModelFactory
 import tuppersoft.com.adoptme.core.extension.observe
 import tuppersoft.com.adoptme.core.extension.viewModel
 import tuppersoft.com.adoptme.core.platform.GlobalActivity
+import tuppersoft.com.data.repositories.SharedPreferencesRepository
 import tuppersoft.com.domain.entities.Animal
 import tuppersoft.com.domain.entities.RecordDto
 import tuppersoft.com.domain.entities.Sex
+import tuppersoft.com.domain.entities.UserDto
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
@@ -57,7 +59,8 @@ class AddActivity : GlobalActivity() {
         mActionBar?.setDisplayShowHomeEnabled(true)
         mActionBar?.title = getString(string.add)
 
-
+        val user = SharedPreferencesRepository.loadPreferenceObject(this, "USER", UserDto()) as UserDto
+        addViewModel.setUid(user.uid)
 
         card1.setOnClickListener { dispatchTakePictureIntent(REQUEST_IMAGE_CAPTURE_1) }
         card2.setOnClickListener { dispatchTakePictureIntent(REQUEST_IMAGE_CAPTURE_2) }
@@ -90,12 +93,19 @@ class AddActivity : GlobalActivity() {
             observe(urlPhoto3, ::handleEndPhoto3)
             observe(urlPhoto4, ::handleEndPhoto4)
             observe(recordDto, ::handleRecord)
+            observe(isOk, ::handleSaveRecord)
         }
+    }
+
+
+    fun handleSaveRecord(isOK: Boolean) {
+
+        Toast.makeText(this, getString(string.addOk), Toast.LENGTH_LONG).show()
+        finish()
     }
 
     fun handleRecord(record: RecordDto) {
         if (record.imageUrl.size > 0 && record.age >= 0 && record.name != "") {
-            Toast.makeText(this, "Se puede", Toast.LENGTH_SHORT).show()
             if (this::itemSaveMenu.isInitialized) {
                 itemSaveMenu.isVisible = true
             }
@@ -198,20 +208,6 @@ class AddActivity : GlobalActivity() {
         }
     }
 
-    /* @Throws(IOException::class)
-     private fun Bitmap.getFileFromBitmap(mContext: Context): File {
-         val f = File(mContext.cacheDir, "tempFileName")
-         f.createNewFile()
-         val bos = ByteArrayOutputStream()
-         this.compress(Bitmap.CompressFormat.JPEG, 100, bos)
-         val toByteArray = bos.toByteArray()
-         val fos = FileOutputStream(f)
-         fos.write(toByteArray)
-         fos.flush()
-         fos.close()
-         return f
-     }*/
-
 
     @Throws(IOException::class)
     private fun createImageFile(): File {
@@ -226,6 +222,19 @@ class AddActivity : GlobalActivity() {
         )
         mCurrentPhotoPath = image.absolutePath
         return image
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            id.save -> {
+                addViewModel.recordDto.value?.let {
+                    addViewModel.saveRecord(it)
+                }
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
 }

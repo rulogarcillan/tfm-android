@@ -3,7 +3,9 @@ package tuppersoft.com.data.repositories
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
+import tuppersoft.com.data.mappers.toRecord
 import tuppersoft.com.data.mappers.toUser
+import tuppersoft.com.domain.entities.RecordDto
 import tuppersoft.com.domain.entities.UserDto
 import tuppersoft.com.domain.repositories.FirebaseRepository
 import javax.inject.Inject
@@ -16,6 +18,20 @@ class FirebaseRepositoryImpl @Inject constructor(val auth: FirebaseAuth, private
     override fun getUserLogin(): UserDto? {
         return auth.currentUser?.toUser()
     }
+
+
+    override fun saveRecord(record: RecordDto): RecordDto {
+
+        db.collection("records").add(record.toRecord())
+            .addOnSuccessListener {
+                it.toString()
+            }
+            .addOnFailureListener {
+                it.toString()
+            }
+        return record
+    }
+
 
     override fun saveUserDataBase(user: UserDto): UserDto {
         db.collection("users").document(user.uid).set(user)

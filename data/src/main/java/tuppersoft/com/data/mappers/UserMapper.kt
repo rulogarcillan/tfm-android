@@ -9,6 +9,5 @@ fun FirebaseUser.toUser() = UserDto(
     email ?: "",
     photoUrl.toString(),
     isEmailVerified
-
 )
 
