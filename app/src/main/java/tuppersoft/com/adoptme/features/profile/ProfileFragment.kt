@@ -1,6 +1,5 @@
 package tuppersoft.com.adoptme.features.profile
 
-
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.fragment_profile.view.*
+import kotlinx.android.synthetic.main.fragment_profile.view.ivAvatar
+import kotlinx.android.synthetic.main.fragment_profile.view.rvListMenu
+import kotlinx.android.synthetic.main.fragment_profile.view.tvEmail
+import kotlinx.android.synthetic.main.fragment_profile.view.tvName
 import tuppersoft.com.adoptme.R
 import tuppersoft.com.adoptme.core.extension.loadFromUrl
 import tuppersoft.com.adoptme.core.extension.log
@@ -18,7 +20,6 @@ import tuppersoft.com.adoptme.core.navigation.Navigation
 import tuppersoft.com.adoptme.core.platform.GlobalFragment
 import tuppersoft.com.data.repositories.SharedPreferencesRepository
 import tuppersoft.com.domain.entities.UserDto
-
 
 class ProfileFragment : GlobalFragment() {
 
@@ -71,7 +72,6 @@ class ProfileFragment : GlobalFragment() {
         }
     }
 
-
     private fun createListMenu(): MutableList<ProfileItemMenu> {
         val list = mutableListOf<ProfileItemMenu>()
 
@@ -84,7 +84,6 @@ class ProfileFragment : GlobalFragment() {
         return list
     }
 
-
     private fun configStatusBar() {
         val mActivity = activity
         mActivity?.let {
@@ -93,11 +92,9 @@ class ProfileFragment : GlobalFragment() {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 val decor = window.decorView
                 decor.systemUiVisibility = 0
-
             }
         }
     }
 
     override fun showToolbar() = false
-
 }

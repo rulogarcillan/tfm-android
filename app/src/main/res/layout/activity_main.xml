@@ -1,5 +1,5 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/idLayoutGames"
@@ -11,7 +11,7 @@
             layout="@layout/view_toolbar_center"
             app:layout_constraintBottom_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
         <FrameLayout
             android:id="@+id/idFrameLayout"
@@ -21,8 +21,7 @@
             app:layout_constraintBottom_toTopOf="@id/idNavigationView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/myToolbar">
-        </FrameLayout>
+            app:layout_constraintTop_toBottomOf="@+id/myToolbar"></FrameLayout>
 
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -35,7 +34,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:menu="@menu/navigation"/>
+            app:menu="@menu/navigation" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

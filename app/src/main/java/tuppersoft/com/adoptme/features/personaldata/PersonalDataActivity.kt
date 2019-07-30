@@ -3,8 +3,13 @@ package tuppersoft.com.adoptme.features.personaldata
 import android.content.Context
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
-import kotlinx.android.synthetic.main.activity_personal_data.*
-import kotlinx.android.synthetic.main.view_toolbar.*
+import kotlinx.android.synthetic.main.activity_personal_data.etAboutMe
+import kotlinx.android.synthetic.main.activity_personal_data.etPostalCode
+import kotlinx.android.synthetic.main.activity_personal_data.ivEditAboutMe
+import kotlinx.android.synthetic.main.activity_personal_data.ivEditPostalCode
+import kotlinx.android.synthetic.main.activity_personal_data.tvEmail
+import kotlinx.android.synthetic.main.activity_personal_data.tvName
+import kotlinx.android.synthetic.main.view_toolbar.toolbar
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent
 import tuppersoft.com.adoptme.core.di.viewmodel.ViewModelFactory
 import tuppersoft.com.adoptme.core.extension.observe
@@ -14,7 +19,6 @@ import tuppersoft.com.data.repositories.SharedPreferencesRepository
 import tuppersoft.com.domain.entities.UserDto
 import javax.inject.Inject
 
-
 class PersonalDataActivity : GlobalActivity() {
 
 
@@ -22,7 +26,6 @@ class PersonalDataActivity : GlobalActivity() {
     lateinit var viewModelFactory: ViewModelFactory
     lateinit var personalDataViewModel: PersonalDataViewModel
     lateinit var user: UserDto
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         appComponent.inject(this)
@@ -90,6 +93,4 @@ class PersonalDataActivity : GlobalActivity() {
         user.description = etAboutMe.text.toString()
         personalDataViewModel.saveUSer(user)
     }
-
-
 }

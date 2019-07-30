@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 
-
 inline fun <reified T : ViewModel> Fragment.viewModel(
     factory: ViewModelProvider.Factory,
     body: T.() -> Unit

@@ -1,6 +1,5 @@
 package tuppersoft.com.adoptme.core.platform
 
-
 import androidx.recyclerview.widget.RecyclerView
 
 abstract class GlobalAdapter<T>(private var items: MutableList<T>?) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

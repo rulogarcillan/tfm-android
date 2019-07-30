@@ -11,5 +11,4 @@ interface ImgurApi {
     @Multipart
     @POST("/3/upload")
     fun uploadImg(@Part file: MultipartBody.Part): Call<ImgDto>
-
 }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/layout"
     android:layout_width="match_parent"
@@ -12,14 +11,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="@fraction/guide_aurea_medium"/>
+        app:layout_constraintGuide_percent="@fraction/guide_aurea_medium" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineEnd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="@fraction/guide_aurea_end"/>
+        app:layout_constraintGuide_percent="@fraction/guide_aurea_end" />
 
 
     <View
@@ -30,7 +29,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guidelineEnd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <ImageView
@@ -41,7 +40,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pet"/>
+        app:srcCompat="@drawable/pet" />
 
 
     <ImageView
@@ -52,7 +51,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_adoptme"/>
+        app:srcCompat="@drawable/ic_adoptme" />
 
 
     <ImageView
@@ -62,7 +61,7 @@
         android:src="@drawable/illustration_curved_top_login"
         app:layout_constraintBottom_toTopOf="@id/guidelineEnd"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <com.google.android.material.button.MaterialButton
@@ -79,7 +78,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/guidelineEnd"
-        app:rippleColor="@color/neutralGrey"/>
+        app:rippleColor="@color/neutralGrey" />
 
     <TextView
         android:id="@+id/idTerms"
@@ -91,6 +90,6 @@
         android:textColor="@color/darkGrey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

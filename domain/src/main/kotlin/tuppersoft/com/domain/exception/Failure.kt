@@ -7,5 +7,5 @@ sealed class Failure {
     object UnknownError : Failure()
 
     /** * Extend this class for feature specific failures.*/
-    abstract class FeatureFailure: Failure()
+    abstract class FeatureFailure : Failure()
 }

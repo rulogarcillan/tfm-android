@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import tuppersoft.com.adoptme.App
 import tuppersoft.com.adoptme.core.di.AppComponent
 
-
 abstract class GlobalActivity : AppCompatActivity() {
 
     val appComponent: AppComponent by lazy(mode = LazyThreadSafetyMode.NONE) {
@@ -21,6 +20,5 @@ abstract class GlobalActivity : AppCompatActivity() {
         }
         return true
     }
-
 }
 

@@ -13,6 +13,4 @@ class UploadImage constructor(private val repository: ImgurRepository) : UseCase
     }
 
     data class Params(val file: File, val isConnected: Boolean)
-
-
 }

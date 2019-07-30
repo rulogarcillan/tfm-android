@@ -10,7 +10,6 @@ import com.daimajia.androidanimations.library.YoYo
 import tuppersoft.com.adoptme.R
 import tuppersoft.com.adoptme.core.navigation.Navigation
 
-
 class SplashActivity : AppCompatActivity() {
 
     companion object {
@@ -36,5 +35,4 @@ class SplashActivity : AppCompatActivity() {
             Navigation.goLoginActivity(this)
         }, TIME_SPLASH)
     }
-
 }

@@ -1,6 +1,5 @@
 package tuppersoft.com.adoptme.core.di.viewmodel
 
-
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import dagger.Binds
@@ -21,7 +20,6 @@ abstract class ViewModelModule {
     @ViewModelKey(LoginViewModel::class)
     abstract fun bindLoginViewModel(viewModel: LoginViewModel): ViewModel
 
-
     @Binds
     @IntoMap
     @ViewModelKey(PersonalDataViewModel::class)
@@ -31,7 +29,6 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(AddViewModel::class)
     abstract fun bindAddViewModel(viewModel: AddViewModel): ViewModel
-
 }
 
 

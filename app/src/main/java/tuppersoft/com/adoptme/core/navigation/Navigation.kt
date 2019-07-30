@@ -18,7 +18,6 @@ import tuppersoft.com.adoptme.features.messages.MessagesFragment
 import tuppersoft.com.adoptme.features.personaldata.PersonalDataActivity
 import tuppersoft.com.adoptme.features.profile.ProfileFragment
 
-
 object Navigation {
 
     const val URL_TERM_CONDITION = "https://info.tuppersoft.com/privacy/privacy_policy_adoptme.html"
@@ -28,7 +27,6 @@ object Navigation {
         val intent = Intent(mActivity, LoginActivity::class.java)
         mActivity.startActivity(intent)
         mActivity.finishOrNot(finish)
-
     }
 
     fun goMainActivity(mActivity: Activity, finish: Boolean = true) {
@@ -43,7 +41,6 @@ object Navigation {
         mActivity.finishOrNot(finish)
     }
 
-
     fun goHomeFragment(manager: FragmentManager) {
         val fragment = HomeFragment.newInstance(R.string.home)
         val transaction = manager.beginTransaction()
@@ -51,7 +48,6 @@ object Navigation {
         transaction.disallowAddToBackStack()
         transaction.commit()
     }
-
 
     fun goDiscoveryFragment(manager: FragmentManager) {
         val fragment = DiscoveryFragment.newInstance(R.string.discovery)

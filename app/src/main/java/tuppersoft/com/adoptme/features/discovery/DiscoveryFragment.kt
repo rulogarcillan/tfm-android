@@ -1,22 +1,19 @@
 package tuppersoft.com.adoptme.features.discovery
 
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.view_toolbar_center.*
+import kotlinx.android.synthetic.main.view_toolbar_center.tvTittle
 import tuppersoft.com.adoptme.R
 import tuppersoft.com.adoptme.core.platform.GlobalFragment
 import tuppersoft.com.adoptme.features.home.HomeFragment
 import tuppersoft.com.adoptme.features.main.MainActivity
 
-
 class DiscoveryFragment : GlobalFragment() {
 
 
     lateinit var tittle: String
-
 
     companion object {
         private const val TITTLE = "title"

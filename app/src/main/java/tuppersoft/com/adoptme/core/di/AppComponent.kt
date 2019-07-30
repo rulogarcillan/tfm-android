@@ -14,7 +14,6 @@ import tuppersoft.com.adoptme.features.personaldata.PersonalDataActivity
 import tuppersoft.com.adoptme.features.profile.ProfileFragment
 import javax.inject.Singleton
 
-
 @Singleton
 @Component(modules = [AppModule::class, ViewModelModule::class, RepositoriesModule::class])
 interface AppComponent {
@@ -29,6 +28,4 @@ interface AppComponent {
     fun inject(fragment: BookmarksFragment)
     fun inject(fragment: MessagesFragment)
     fun inject(fragment: ProfileFragment)
-
-
 }

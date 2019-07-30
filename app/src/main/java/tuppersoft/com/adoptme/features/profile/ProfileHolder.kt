@@ -3,7 +3,9 @@ package tuppersoft.com.adoptme.features.profile
 import android.view.View
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.item_menu_profile.view.*
+import kotlinx.android.synthetic.main.item_menu_profile.view.imIconProfileMenu
+import kotlinx.android.synthetic.main.item_menu_profile.view.ivArrow
+import kotlinx.android.synthetic.main.item_menu_profile.view.tvTextProfileMenu
 
 class ProfileHolder(private val rootView: View) : RecyclerView.ViewHolder(rootView) {
 

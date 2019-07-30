@@ -4,9 +4,12 @@ import dagger.Module
 import dagger.Provides
 import tuppersoft.com.data.repositories.FirebaseRepositoryImpl
 import tuppersoft.com.data.repositories.ImgurRepositoryImp
-import tuppersoft.com.domain.usescases.*
+import tuppersoft.com.domain.usescases.DoLogin
+import tuppersoft.com.domain.usescases.IsLogin
+import tuppersoft.com.domain.usescases.SaveRecord
+import tuppersoft.com.domain.usescases.SaveUser
+import tuppersoft.com.domain.usescases.UploadImage
 import javax.inject.Singleton
-
 
 @Module
 class RepositoriesModule {
@@ -15,11 +18,9 @@ class RepositoriesModule {
     @Singleton
     fun provideIsLogin(dataSource: FirebaseRepositoryImpl): IsLogin = IsLogin(dataSource)
 
-
     @Provides
     @Singleton
     fun provideDoLogin(dataSource: FirebaseRepositoryImpl): DoLogin = DoLogin(dataSource)
-
 
     @Provides
     @Singleton

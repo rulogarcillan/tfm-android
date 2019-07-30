@@ -12,10 +12,32 @@ import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.core.content.FileProvider
 import androidx.core.widget.doAfterTextChanged
-import kotlinx.android.synthetic.main.activity_add.*
-import kotlinx.android.synthetic.main.view_toolbar.*
+import kotlinx.android.synthetic.main.activity_add.card1
+import kotlinx.android.synthetic.main.activity_add.card2
+import kotlinx.android.synthetic.main.activity_add.card3
+import kotlinx.android.synthetic.main.activity_add.card4
+import kotlinx.android.synthetic.main.activity_add.crAnimal
+import kotlinx.android.synthetic.main.activity_add.crSex
+import kotlinx.android.synthetic.main.activity_add.image1
+import kotlinx.android.synthetic.main.activity_add.image2
+import kotlinx.android.synthetic.main.activity_add.image3
+import kotlinx.android.synthetic.main.activity_add.image4
+import kotlinx.android.synthetic.main.activity_add.ivSync1
+import kotlinx.android.synthetic.main.activity_add.ivSync2
+import kotlinx.android.synthetic.main.activity_add.ivSync3
+import kotlinx.android.synthetic.main.activity_add.ivSync4
+import kotlinx.android.synthetic.main.activity_add.sync1
+import kotlinx.android.synthetic.main.activity_add.sync2
+import kotlinx.android.synthetic.main.activity_add.sync3
+import kotlinx.android.synthetic.main.activity_add.sync4
+import kotlinx.android.synthetic.main.activity_add.tiAge
+import kotlinx.android.synthetic.main.activity_add.tiName
+import kotlinx.android.synthetic.main.view_toolbar.toolbar
 import tuppersoft.com.adoptme.R
-import tuppersoft.com.adoptme.R.*
+import tuppersoft.com.adoptme.R.anim
+import tuppersoft.com.adoptme.R.id
+import tuppersoft.com.adoptme.R.layout
+import tuppersoft.com.adoptme.R.string
 import tuppersoft.com.adoptme.core.di.viewmodel.ViewModelFactory
 import tuppersoft.com.adoptme.core.extension.observe
 import tuppersoft.com.adoptme.core.extension.viewModel
@@ -28,9 +50,9 @@ import tuppersoft.com.domain.entities.UserDto
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
+import java.util.Locale
 import javax.inject.Inject
-
 
 class AddActivity : GlobalActivity() {
 
@@ -96,7 +118,6 @@ class AddActivity : GlobalActivity() {
             observe(isOk, ::handleSaveRecord)
         }
     }
-
 
     fun handleSaveRecord(isOK: Boolean) {
 
@@ -166,9 +187,7 @@ class AddActivity : GlobalActivity() {
                 addViewModel.uploadPhoto4(file)
             }
         }
-
     }
-
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.save, menu)
@@ -208,7 +227,6 @@ class AddActivity : GlobalActivity() {
         }
     }
 
-
     @Throws(IOException::class)
     private fun createImageFile(): File {
 
@@ -224,7 +242,6 @@ class AddActivity : GlobalActivity() {
         return image
     }
 
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             id.save -> {
@@ -236,5 +253,4 @@ class AddActivity : GlobalActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
 }

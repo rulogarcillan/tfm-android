@@ -1,12 +1,10 @@
 package tuppersoft.com.adoptme.core.platform
 
-import android.app.Application
 import android.content.Context
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import tuppersoft.com.adoptme.R
-
 
 /**
  * Created by Raúl Rodríguez Concepción on 2019-06-16.
@@ -23,5 +21,4 @@ object GlobalFunctions {
             .build()
         return GoogleSignIn.getClient(mContex, gso)
     }
-
 }

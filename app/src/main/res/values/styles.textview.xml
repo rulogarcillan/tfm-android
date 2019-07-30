@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="titleLogin">
         <item name="android:textSize">54sp</item>
         <item name="android:layout_marginTop">4dp</item>

@@ -6,7 +6,6 @@ import tuppersoft.com.adoptme.core.di.AppComponent
 import tuppersoft.com.adoptme.core.di.AppModule
 import tuppersoft.com.adoptme.core.di.DaggerAppComponent
 
-
 class App : Application() {
 
     val appComponent: AppComponent by lazy(mode = LazyThreadSafetyMode.NONE) {

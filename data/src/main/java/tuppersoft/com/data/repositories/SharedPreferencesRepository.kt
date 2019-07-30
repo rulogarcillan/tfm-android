@@ -6,7 +6,6 @@ import android.content.Context
 import android.preference.PreferenceManager
 import com.google.gson.Gson
 
-
 object SharedPreferencesRepository {
 
     /**
@@ -43,13 +42,12 @@ object SharedPreferencesRepository {
     /**
      * Carga cualquier valor primitivo del shared preferences
      */
-    fun  loadPreferenceObject(mContext: Context, key: String, defaultValue: Any): Any {
+    fun loadPreferenceObject(mContext: Context, key: String, defaultValue: Any): Any {
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext)
         val gson = Gson()
         val json = sharedPreferences.getString(key, "")
         return gson.fromJson(json, defaultValue::class.java)
     }
-
 
     /**
      * Carga cualquier valor primitivo del shared preferences

@@ -12,13 +12,11 @@ import javax.inject.Inject
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
-
 class FirebaseRepositoryImpl @Inject constructor(val auth: FirebaseAuth, private val db: FirebaseFirestore) : FirebaseRepository {
 
     override fun getUserLogin(): UserDto? {
         return auth.currentUser?.toUser()
     }
-
 
     override fun saveRecord(record: RecordDto): RecordDto {
 
@@ -31,7 +29,6 @@ class FirebaseRepositoryImpl @Inject constructor(val auth: FirebaseAuth, private
             }
         return record
     }
-
 
     override fun saveUserDataBase(user: UserDto): UserDto {
         db.collection("users").document(user.uid).set(user)
@@ -49,7 +46,6 @@ class FirebaseRepositoryImpl @Inject constructor(val auth: FirebaseAuth, private
                 }
                 .addOnFailureListener { continuation.resume(null) }
         }
-
 
     override suspend fun loginWithFirebase(token: String): UserDto? =
         suspendCoroutine { continuation ->

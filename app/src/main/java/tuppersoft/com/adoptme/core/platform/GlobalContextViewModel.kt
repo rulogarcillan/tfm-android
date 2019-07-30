@@ -5,7 +5,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import tuppersoft.com.domain.exception.Failure
 
-
 abstract class GlobalContextViewModel(app: Application) : AndroidViewModel(app) {
 
     var failure: MutableLiveData<Failure> = MutableLiveData()

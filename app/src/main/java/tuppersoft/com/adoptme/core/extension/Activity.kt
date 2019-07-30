@@ -23,7 +23,6 @@ inline fun <reified T : ViewModel> AppCompatActivity.viewModel(
     return vm
 }
 
-
 fun Activity.finishOrNot(finish: Boolean) {
     if (finish) {
         this.finish()

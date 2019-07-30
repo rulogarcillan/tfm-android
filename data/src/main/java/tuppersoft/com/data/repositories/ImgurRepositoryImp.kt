@@ -13,11 +13,9 @@ import tuppersoft.com.domain.repositories.ImgurRepository
 import java.io.File
 import javax.inject.Inject
 
-
 class ImgurRepositoryImp @Inject constructor(private val service: ImgurApi) : ImgurRepository {
 
     override fun uploadImage(file: File, isConnected: Boolean): Either<Failure, ImgDto> {
-
 
         val mFile = MultipartBody.Part.createFormData(
             "image",

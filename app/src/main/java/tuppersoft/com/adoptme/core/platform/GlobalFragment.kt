@@ -1,6 +1,5 @@
 package tuppersoft.com.adoptme.core.platform
 
-
 /**
  * Created by Raúl Rodríguez Concepción on 2019-06-16.
  * Talento Mobile
@@ -13,12 +12,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.myToolbar
 import tuppersoft.com.adoptme.App
 import tuppersoft.com.adoptme.R
 import tuppersoft.com.adoptme.core.di.AppComponent
 import tuppersoft.com.adoptme.features.main.MainActivity
-
 
 abstract class GlobalFragment : Fragment() {
 
@@ -53,7 +51,6 @@ abstract class GlobalFragment : Fragment() {
             } else {
                 context.myToolbar?.let { it.visibility = View.GONE }
             }
-
         }
     }
 }

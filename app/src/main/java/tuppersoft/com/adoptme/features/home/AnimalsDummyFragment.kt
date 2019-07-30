@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import tuppersoft.com.adoptme.R
 import tuppersoft.com.domain.entities.RecordDto
 
-
 /**
  * Created by Raúl Rodríguez Concepción on 2019-07-30.
  * Talento Mobile
@@ -38,6 +37,4 @@ class AnimalsDummyFragment : Fragment() {
     private fun getBundle(savedInstanceState: Bundle?) {
         page = (savedInstanceState?.getSerializable(DATA_ANIMAL) ?: RecordDto()) as RecordDto
     }
-
-
 }

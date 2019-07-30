@@ -10,5 +10,4 @@ class AnimalsPagerAdapter(fm: FragmentManager, private val list: MutableList<Rec
     override fun getCount() = list.size
 
     override fun getItem(position: Int): Fragment = AnimalsDummyFragment.newInstance(list[position])
-
 }

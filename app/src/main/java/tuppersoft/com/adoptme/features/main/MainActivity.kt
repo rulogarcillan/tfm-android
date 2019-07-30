@@ -1,11 +1,10 @@
 package tuppersoft.com.adoptme.features.main
 
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.idNavigationView
 import tuppersoft.com.adoptme.R
 import tuppersoft.com.adoptme.core.navigation.Navigation
 import tuppersoft.com.adoptme.core.platform.GlobalActivity
-
 
 class MainActivity : GlobalActivity() {
 

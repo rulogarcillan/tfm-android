@@ -4,7 +4,6 @@ import android.widget.ImageView
 import tuppersoft.com.adoptme.R
 import tuppersoft.com.adoptme.core.platform.GlideApp
 
-
 /**
  * Created by Raúl Rodríguez Concepción on 2019-06-16.
  * Talento Mobile

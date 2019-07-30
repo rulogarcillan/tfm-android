@@ -36,7 +36,6 @@ class AppModule(private val app: Application) {
     @Singleton
     fun provideFirebaseDb(): FirebaseFirestore = FirebaseFirestore.getInstance()
 
-
     @Provides
     @Singleton
     fun createNetworkClient() = retrofitClient(httpClient())
@@ -44,7 +43,6 @@ class AppModule(private val app: Application) {
     @Provides
     @Singleton
     fun provideImgurApi(): ImgurApi = retrofitClient(httpClient()).create(ImgurApi::class.java)
-
 
     private fun httpClient(): OkHttpClient {
         // val httpLoggingInterceptor = HttpLoggingInterceptor(HttpLoggingInterceptor.Logger.DEFAULT)

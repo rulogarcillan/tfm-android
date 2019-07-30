@@ -6,11 +6,11 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import kotlinx.android.synthetic.main.custom_radio_sex.view.*
-
-
+import kotlinx.android.synthetic.main.custom_radio_sex.view.select1
+import kotlinx.android.synthetic.main.custom_radio_sex.view.select2
+import kotlinx.android.synthetic.main.custom_radio_sex.view.selectText1
+import kotlinx.android.synthetic.main.custom_radio_sex.view.selectText2
 import tuppersoft.com.adoptme.R
-
 
 /**
  * Created by Raúl Rodríguez Concepción on 2019-07-11.
@@ -31,7 +31,6 @@ class CustomRadioSex : ConstraintLayout {
 
     constructor(context: Context?) : super(context) {
         init()
-
     }
 
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
@@ -61,11 +60,10 @@ class CustomRadioSex : ConstraintLayout {
             selectText2.setTextColor(ContextCompat.getColor(context, R.color.primaryBlue))
             setSelected(2)
         }
-
     }
 
     private fun setSelected(id: Int) {
-           globalActions(id)
+        globalActions(id)
         idSelected = id
     }
 
@@ -75,8 +73,5 @@ class CustomRadioSex : ConstraintLayout {
 
         selectText1.setTextColor(ContextCompat.getColor(context, R.color.black))
         selectText2.setTextColor(ContextCompat.getColor(context, R.color.black))
-
     }
-
-
 }

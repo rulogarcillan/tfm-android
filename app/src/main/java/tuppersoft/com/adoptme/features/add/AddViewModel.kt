@@ -24,7 +24,6 @@ class AddViewModel @Inject constructor(private val uploadImage: UploadImage, pri
         recordDto.value = recordDto.value?.copy(uid = uid)
     }
 
-
     fun addAnimal(animal: Animal) {
         recordDto.value = recordDto.value?.copy(animal = animal)
     }
@@ -80,7 +79,6 @@ class AddViewModel @Inject constructor(private val uploadImage: UploadImage, pri
         if (imgDto.success) {
             urlPhoto2.value = imgDto.data.link
             recordDto.value = recordDto.value?.copy(imageUrl = genArrayPhotos())
-
         }
     }
 
@@ -129,5 +127,4 @@ class AddViewModel @Inject constructor(private val uploadImage: UploadImage, pri
             isOk.value = true
         }
     }
-
 }

@@ -6,9 +6,15 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import kotlinx.android.synthetic.main.custom_radio_animals.view.*
+import kotlinx.android.synthetic.main.custom_radio_animals.view.select1
+import kotlinx.android.synthetic.main.custom_radio_animals.view.select2
+import kotlinx.android.synthetic.main.custom_radio_animals.view.select3
+import kotlinx.android.synthetic.main.custom_radio_animals.view.select4
+import kotlinx.android.synthetic.main.custom_radio_animals.view.selectText1
+import kotlinx.android.synthetic.main.custom_radio_animals.view.selectText2
+import kotlinx.android.synthetic.main.custom_radio_animals.view.selectText3
+import kotlinx.android.synthetic.main.custom_radio_animals.view.selectText4
 import tuppersoft.com.adoptme.R
-
 
 /**
  * Created by Raúl Rodríguez Concepción on 2019-07-11.
@@ -25,12 +31,10 @@ class CustomRadioAnimals : ConstraintLayout {
         this.globalActions = globalActions
     }
 
-
     fun getSelectedId() = idSelected
 
     constructor(context: Context?) : super(context) {
         init()
-
     }
 
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
@@ -72,7 +76,6 @@ class CustomRadioAnimals : ConstraintLayout {
             selectText4.setTextColor(ContextCompat.getColor(context, R.color.primaryBlue))
             setSelected(4)
         }
-
     }
 
     private fun setSelected(id: Int) {
@@ -91,6 +94,4 @@ class CustomRadioAnimals : ConstraintLayout {
         selectText3.setTextColor(ContextCompat.getColor(context, R.color.black))
         selectText4.setTextColor(ContextCompat.getColor(context, R.color.black))
     }
-
-
 }

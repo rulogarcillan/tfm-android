@@ -22,7 +22,6 @@ import tuppersoft.com.data.repositories.SharedPreferencesRepository
 import tuppersoft.com.domain.entities.UserDto
 import javax.inject.Inject
 
-
 class LoginActivity : GlobalActivity() {
 
     companion object {
@@ -41,7 +40,6 @@ class LoginActivity : GlobalActivity() {
 
         configStatusBar()
         initViewModel()
-
     }
 
     private fun initViewModel() {
@@ -67,7 +65,6 @@ class LoginActivity : GlobalActivity() {
     fun onClickGoogle(view: View) {
         googleSignIn()
     }
-
 
     private fun googleSignIn() {
         val signInIntent = mGoogleSignInClient.signInIntent
