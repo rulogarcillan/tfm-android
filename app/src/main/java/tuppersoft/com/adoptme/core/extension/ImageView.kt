@@ -1,6 +1,7 @@
 package tuppersoft.com.adoptme.core.extension
 
 import android.widget.ImageView
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import tuppersoft.com.adoptme.R
 import tuppersoft.com.adoptme.core.platform.GlideApp
 
@@ -12,8 +13,8 @@ import tuppersoft.com.adoptme.core.platform.GlideApp
 
 fun ImageView.loadFromUrl(url: String?, width: Int? = null, height: Int? = null) {
     if (width != null && height != null) {
-        GlideApp.with(context).load(url).placeholder(R.drawable.ic_profile).override(width, height).into(this)
+        GlideApp.with(context).load(url).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.drawable.ic_img_placeholder).override(width, height).into(this)
     } else {
-        GlideApp.with(context).load(url).placeholder(R.drawable.ic_profile).into(this)
+        GlideApp.with(context).load(url).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.drawable.ic_img_placeholder).into(this)
     }
 }

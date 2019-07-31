@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.dummy_fragment.view.ivPhoto
-import kotlinx.android.synthetic.main.dummy_fragment.view.tvAge
 import kotlinx.android.synthetic.main.dummy_fragment.view.tvName
 import tuppersoft.com.adoptme.R
 import tuppersoft.com.adoptme.core.extension.loadFromUrl
 import tuppersoft.com.domain.entities.RecordDto
+import tuppersoft.com.domain.entities.Sex.FEMALE
 
 /**
  * Created by Raúl Rodríguez Concepción on 2019-07-30.
@@ -42,8 +42,11 @@ class AnimalsDummyFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.ivPhoto.loadFromUrl(page.imageUrl.random())
-        view.tvName.text = page.name
-        view.tvAge.text = page.age.toString()
+        if (page.sex == FEMALE) {
+            view.tvName.text = "${"${page.name.substring(0, 1).toUpperCase()}${page.name.substring(1)}"} - ♀"
+        } else {
+            view.tvName.text = "${"${page.name.substring(0, 1).toUpperCase()}${page.name.substring(1)}"} - ♂"
+        }
     }
 
     private fun getmArguments() {

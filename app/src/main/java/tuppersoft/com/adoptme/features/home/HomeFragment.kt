@@ -1,16 +1,19 @@
 package tuppersoft.com.adoptme.features.home
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.fragment_home.view.efbAdd
 import kotlinx.android.synthetic.main.fragment_home.view.idViewPager
 import kotlinx.android.synthetic.main.fragment_home.view.tab_layout
 import kotlinx.android.synthetic.main.view_toolbar_center.tvTittle
-import tuppersoft.com.adoptme.R
 import tuppersoft.com.adoptme.core.di.viewmodel.ViewModelFactory
+import tuppersoft.com.adoptme.core.extension.log
 import tuppersoft.com.adoptme.core.extension.observe
 import tuppersoft.com.adoptme.core.extension.viewModel
+import tuppersoft.com.adoptme.core.navigation.Navigation
 import tuppersoft.com.adoptme.core.platform.GlobalFragment
 import tuppersoft.com.adoptme.features.main.MainActivity
 import tuppersoft.com.domain.entities.RecordDto
@@ -53,15 +56,33 @@ class HomeFragment : GlobalFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        view.efbAdd.setOnClickListener { activity?.let { Navigation.goAddActivity(it) } }
         initViewModel()
         initIndicator()
         initAdapter()
         homeViewModel.getRecords()
+
+        val mHandler = Handler()
+        val mTicker = object : Runnable {
+            var page = 0
+            override fun run() {
+                if (mView.idViewPager.adapter?.count == page) {
+                    page=0
+                } else {
+                    page++
+                }
+                "aa".log()
+                mView.idViewPager.setCurrentItem(page, true)
+                mHandler.postDelayed(this, 5000)
+            }
+        }
+        mTicker.run()
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         appComponent.inject(this)
-        mView = inflater.inflate(R.layout.fragment_home, container, false)
+        mView = inflater.inflate(tuppersoft.com.adoptme.R.layout.fragment_home, container, false)
         return mView
     }
 

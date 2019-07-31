@@ -19,21 +19,12 @@
         style="@style/fontBold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:layout_marginStart="@dimen/margin_default"
+        android:textColor="@color/lightGrey"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/tvAge"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Lassy" />
-
-    <TextView
-        android:id="@+id/tvAge"
-        style="@style/fontBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin_default"
-        android:layout_marginStart="@dimen/margin_default"
-        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="2 years" />
+        tools:text="lassy" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
