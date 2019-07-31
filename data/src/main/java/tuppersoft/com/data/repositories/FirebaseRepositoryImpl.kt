@@ -3,7 +3,9 @@ package tuppersoft.com.data.repositories
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
+import tuppersoft.com.data.entities.Record
 import tuppersoft.com.data.mappers.toRecord
+import tuppersoft.com.data.mappers.toRecordDto
 import tuppersoft.com.data.mappers.toUser
 import tuppersoft.com.domain.entities.RecordDto
 import tuppersoft.com.domain.entities.UserDto
@@ -37,6 +39,13 @@ class FirebaseRepositoryImpl @Inject constructor(val auth: FirebaseAuth, private
 
         return user
     }
+
+    override suspend fun getAllRecords(): List<RecordDto> =
+        suspendCoroutine { continuation ->
+            db.collection("records").get().addOnSuccessListener { items ->
+                continuation.resume(items.toObjects(Record::class.java).map { it.toRecordDto() })
+            }
+        }
 
     override suspend fun getUserDataBase(userId: String): UserDto? =
         suspendCoroutine { continuation ->

@@ -10,4 +10,5 @@ interface FirebaseRepository {
     suspend fun getUserDataBase(userId: String): UserDto?
     suspend fun loginWithFirebase(token: String): UserDto?
     fun saveRecord(record: RecordDto): RecordDto
+    suspend fun getAllRecords(): List<RecordDto>
 }

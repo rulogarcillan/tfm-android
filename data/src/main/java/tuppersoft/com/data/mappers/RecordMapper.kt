@@ -20,7 +20,7 @@ fun RecordDto.toRecord() = Record(
 )
 
 fun Record.toRecordDto() = RecordDto(
-    uid.id.toString(),
+    uid?.id.toString(),
     animal,
     sex,
     name,

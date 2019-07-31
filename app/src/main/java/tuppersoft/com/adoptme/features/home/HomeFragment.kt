@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.fragment_home.view.tab_layout
 import kotlinx.android.synthetic.main.view_toolbar_center.tvTittle
 import tuppersoft.com.adoptme.R
 import tuppersoft.com.adoptme.core.di.viewmodel.ViewModelFactory
+import tuppersoft.com.adoptme.core.extension.observe
 import tuppersoft.com.adoptme.core.extension.viewModel
 import tuppersoft.com.adoptme.core.platform.GlobalFragment
 import tuppersoft.com.adoptme.features.main.MainActivity
@@ -19,7 +20,8 @@ class HomeFragment : GlobalFragment() {
 
 
     private lateinit var tittle: String
-    lateinit var pages: ArrayList<RecordDto>
+    val pages: MutableList<RecordDto> = mutableListOf()
+    lateinit var mView: View
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
@@ -51,41 +53,47 @@ class HomeFragment : GlobalFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         initViewModel()
-        createPages()
-        initIndicator(view)
-        initAdapter(view)
+        initIndicator()
+        initAdapter()
+        homeViewModel.getRecords()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         appComponent.inject(this)
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        mView = inflater.inflate(R.layout.fragment_home, container, false)
+        return mView
     }
 
-    private fun createPages() {
-        pages = ArrayList()
-        pages.add(
-            RecordDto("1")
-        )
-        pages.add(
-            RecordDto("2")
-        )
+    private fun handlePages(records: MutableList<RecordDto>) {
+        pages.clear()
+        if (records.size > 4) {
+            for (i in 0..4) {
+                var item = records.random()
+                while (pages.contains(item)) {
+                    item = records.random()
+                }
+                pages.add(item)
+            }
+        } else {
+            pages.addAll(records)
+        }
+        initAdapter()
     }
 
-    private fun initIndicator(view: View) {
-        view.tab_layout.setupWithViewPager(view.idViewPager, true)
+    private fun initIndicator() {
+        mView.tab_layout.setupWithViewPager(mView.idViewPager, true)
     }
 
-    private fun initAdapter(view: View) {
+    private fun initAdapter() {
         activity?.let {
-            view.idViewPager.adapter = AnimalsPagerAdapter(it.supportFragmentManager, pages)
+            mView.idViewPager.adapter = AnimalsPagerAdapter(it.supportFragmentManager, pages)
         }
     }
 
     private fun initViewModel() {
         homeViewModel = viewModel(viewModelFactory) {
-
+            observe(records, ::handlePages)
         }
     }
 }

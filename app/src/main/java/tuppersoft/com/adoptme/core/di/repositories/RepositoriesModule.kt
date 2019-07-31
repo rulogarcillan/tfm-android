@@ -5,6 +5,7 @@ import dagger.Provides
 import tuppersoft.com.data.repositories.FirebaseRepositoryImpl
 import tuppersoft.com.data.repositories.ImgurRepositoryImp
 import tuppersoft.com.domain.usescases.DoLogin
+import tuppersoft.com.domain.usescases.GetAllRecords
 import tuppersoft.com.domain.usescases.IsLogin
 import tuppersoft.com.domain.usescases.SaveRecord
 import tuppersoft.com.domain.usescases.SaveUser
@@ -33,5 +34,9 @@ class RepositoriesModule {
     @Provides
     @Singleton
     fun provideUploadImage(dataSource: ImgurRepositoryImp): UploadImage = UploadImage(dataSource)
+
+    @Provides
+    @Singleton
+    fun provideGetAllRecords(dataSource: FirebaseRepositoryImpl): GetAllRecords = GetAllRecords(dataSource)
 }
 

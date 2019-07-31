@@ -5,7 +5,7 @@ import tuppersoft.com.domain.entities.Animal
 import tuppersoft.com.domain.entities.Sex
 
 data class Record(
-    val uid: DocumentReference,
+    val uid: DocumentReference? = null,
     val animal: Animal = Animal.DOG,
     val sex: Sex = Sex.MALE,
     val name: String = "",

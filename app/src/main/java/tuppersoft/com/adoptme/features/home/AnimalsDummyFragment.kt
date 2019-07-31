@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.dummy_fragment.view.llroot
+import kotlinx.android.synthetic.main.dummy_fragment.view.ivPhoto
+import kotlinx.android.synthetic.main.dummy_fragment.view.tvAge
+import kotlinx.android.synthetic.main.dummy_fragment.view.tvName
 import tuppersoft.com.adoptme.R
+import tuppersoft.com.adoptme.core.extension.loadFromUrl
 import tuppersoft.com.domain.entities.RecordDto
 
 /**
@@ -39,10 +41,9 @@ class AnimalsDummyFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (page.uid == "1")
-            view.llroot.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.primaryColor))
-        else
-            view.llroot.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.secondaryColor))
+        view.ivPhoto.loadFromUrl(page.imageUrl.random())
+        view.tvName.text = page.name
+        view.tvAge.text = page.age.toString()
     }
 
     private fun getmArguments() {
