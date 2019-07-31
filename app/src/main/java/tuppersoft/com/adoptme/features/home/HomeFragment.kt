@@ -4,20 +4,26 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_home.view.efbAdd
 import kotlinx.android.synthetic.main.fragment_home.view.idViewPager
+import kotlinx.android.synthetic.main.fragment_home.view.tab_layout
 import kotlinx.android.synthetic.main.view_toolbar_center.tvTittle
 import tuppersoft.com.adoptme.R
-import tuppersoft.com.adoptme.core.navigation.Navigation
+import tuppersoft.com.adoptme.core.di.viewmodel.ViewModelFactory
+import tuppersoft.com.adoptme.core.extension.viewModel
 import tuppersoft.com.adoptme.core.platform.GlobalFragment
 import tuppersoft.com.adoptme.features.main.MainActivity
 import tuppersoft.com.domain.entities.RecordDto
+import javax.inject.Inject
 
 class HomeFragment : GlobalFragment() {
 
 
     private lateinit var tittle: String
     lateinit var pages: ArrayList<RecordDto>
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+    private lateinit var homeViewModel: HomeViewModel
 
     companion object {
         private const val TITTLE = "title"
@@ -45,7 +51,10 @@ class HomeFragment : GlobalFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        initViewModel()
         createPages()
+        initIndicator(view)
         initAdapter(view)
     }
 
@@ -64,13 +73,19 @@ class HomeFragment : GlobalFragment() {
         )
     }
 
-    /*  private fun initIndicator(view: View) {
-          tab_layout.setupWithViewPager(idViewPager, true)
-      }*/
+    private fun initIndicator(view: View) {
+        view.tab_layout.setupWithViewPager(view.idViewPager, true)
+    }
 
     private fun initAdapter(view: View) {
         activity?.let {
             view.idViewPager.adapter = AnimalsPagerAdapter(it.supportFragmentManager, pages)
+        }
+    }
+
+    private fun initViewModel() {
+        homeViewModel = viewModel(viewModelFactory) {
+
         }
     }
 }

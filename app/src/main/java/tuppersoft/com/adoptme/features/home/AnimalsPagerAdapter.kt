@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import tuppersoft.com.domain.entities.RecordDto
 
-class AnimalsPagerAdapter(fm: FragmentManager, private val list: MutableList<RecordDto>) : FragmentStatePagerAdapter(fm) {
+class AnimalsPagerAdapter(fm: FragmentManager, private val list: MutableList<RecordDto>) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     override fun getCount() = list.size
 

@@ -6,6 +6,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 import tuppersoft.com.adoptme.features.add.AddViewModel
+import tuppersoft.com.adoptme.features.home.HomeViewModel
 import tuppersoft.com.adoptme.features.login.LoginViewModel
 import tuppersoft.com.adoptme.features.personaldata.PersonalDataViewModel
 
@@ -29,6 +30,13 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(AddViewModel::class)
     abstract fun bindAddViewModel(viewModel: AddViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(HomeViewModel::class)
+    abstract fun bindHomeViewModel(viewModel: HomeViewModel): ViewModel
+
+
 }
 
 
