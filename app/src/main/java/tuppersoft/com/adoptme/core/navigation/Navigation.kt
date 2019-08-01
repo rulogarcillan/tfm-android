@@ -20,7 +20,7 @@ import tuppersoft.com.adoptme.features.profile.ProfileFragment
 
 object Navigation {
 
-    const val URL_TERM_CONDITION = "https://info.tuppersoft.com/privacy/privacy_policy_adoptme.html"
+    private const val URL_TERM_CONDITION = "https://info.tuppersoft.com/privacy/privacy_policy_adoptme.html"
 
     fun goLoginActivity(mActivity: Activity, finish: Boolean = true) {
 

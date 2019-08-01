@@ -49,6 +49,17 @@
     <string name="save">save</string>
     <string name="photos">Photos</string>
     <string name="addOk">Ad successfully posted</string>
+    <string name="see_all">See all</string>
+    <string name="last_dogs">Last dogs</string>
+    <string name="last_others_animal">Last other animals</string>
+    <string name="last_rabbits">Last rabbits</string>
+    <string name="last_cats">Last cats</string>
+
+
+    <plurals name="age">
+        <item quantity="one">year</item>
+        <item quantity="other">years</item>
+    </plurals>
 
 
 </resources>

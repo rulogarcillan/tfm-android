@@ -1,6 +1,5 @@
 package tuppersoft.com.adoptme.features.messages
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +7,6 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.view_toolbar_center.tvTittle
 import tuppersoft.com.adoptme.R
 import tuppersoft.com.adoptme.core.platform.GlobalFragment
-import tuppersoft.com.adoptme.features.home.HomeFragment
 import tuppersoft.com.adoptme.features.main.MainActivity
 
 class MessagesFragment : GlobalFragment() {
@@ -20,23 +18,12 @@ class MessagesFragment : GlobalFragment() {
 
         @JvmStatic
         fun newInstance(tittle: Int) =
-            HomeFragment().apply {
+            MessagesFragment().apply {
                 arguments = Bundle().apply {
                     putInt(TITTLE, tittle)
                     //putString(ARG_PARAM2, param2)
                 }
             }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            val mContext = context
-            mContext?.let { mContext ->
-                tittle = mContext.getString(it.getInt(TITTLE))
-                (context as MainActivity).tvTittle.text = tittle
-            }
-        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -48,8 +35,14 @@ class MessagesFragment : GlobalFragment() {
         return inflater.inflate(R.layout.fragment_messages, container, false)
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        (context as MainActivity).tvTittle.text = tittle
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            val mContext = context
+            mContext?.let { context ->
+                tittle = context.getString(arguments?.getInt(TITTLE) ?: 0)
+                (context as MainActivity).tvTittle.text = tittle
+            }
+        }
     }
 }

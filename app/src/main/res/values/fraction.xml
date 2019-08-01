@@ -6,5 +6,6 @@
     <fraction name="guide_035_top">0.35</fraction>
     <fraction name="guide_aurea_medium">0.40</fraction>
     <fraction name="guide_aurea_end">0.75</fraction>
+    <fraction name="guide_70_end">0.70</fraction>
 
 </resources>

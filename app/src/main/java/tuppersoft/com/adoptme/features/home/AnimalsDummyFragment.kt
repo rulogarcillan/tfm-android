@@ -43,7 +43,7 @@ class AnimalsDummyFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         view.ivPhoto.loadFromUrl(page.imageUrl.random())
         if (page.sex == FEMALE) {
-            view.tvName.text = "${"${page.name.substring(0, 1).toUpperCase()}${page.name.substring(1)}"} - ♀"
+            view.tvName.text = "${page.name.substring(0, 1).toUpperCase() + page.name.substring(1)} - ♀"
         } else {
             view.tvName.text = "${"${page.name.substring(0, 1).toUpperCase()}${page.name.substring(1)}"} - ♂"
         }

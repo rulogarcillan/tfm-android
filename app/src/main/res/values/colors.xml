@@ -17,6 +17,9 @@
     <color name="backgroundTextColor">@color/black</color>
 
 
+    <color name="femaleColor">#F572FF</color>
+    <color name="maleColor">#2979FF</color>
+
     <color name="primaryOrange">#F9A229</color>
     <color name="errorRed">#EE5562</color>
 

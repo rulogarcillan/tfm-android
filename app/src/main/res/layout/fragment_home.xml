@@ -1,40 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/lighterGrey">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineEnd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="@fraction/guide_035_top" />
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/idViewPager"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nsView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/guidelineEnd"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">
 
 
-    <com.google.android.material.tabs.TabLayout
-        android:layout_marginEnd="64dp"
-        android:background="@android:color/transparent"
-        android:id="@+id/tab_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/guidelineEnd"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:tabBackground="@drawable/tab_selector"
-        app:tabGravity="center"
-        app:tabIndicatorHeight="0dp"
-        app:tabPaddingEnd="7dp"
-        app:tabPaddingStart="7dp" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/idViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:background="@drawable/pet" />
+
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginEnd="64dp"
+                android:background="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="@+id/idViewPager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:tabBackground="@drawable/tab_selector"
+                app:tabGravity="center"
+                app:tabIndicatorHeight="0dp"
+                app:tabPaddingEnd="7dp"
+                app:tabPaddingStart="7dp" />
+
+            <FrameLayout
+                android:id="@+id/flDogs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/idViewPager">
+
+                <include
+                    android:id="@+id/icDogs"
+                    layout="@layout/animals_list" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/flCats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/flDogs">
+
+                <include
+                    android:id="@+id/icCats"
+                    layout="@layout/animals_list" />
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/flRabbits"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/flCats">
+
+                <include
+                    android:id="@+id/icRabbits"
+                    layout="@layout/animals_list" />
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/flOthers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/flRabbits">
+
+                <include
+                    android:id="@+id/icOthers"
+                    layout="@layout/animals_list" />
+            </FrameLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/efbAdd"

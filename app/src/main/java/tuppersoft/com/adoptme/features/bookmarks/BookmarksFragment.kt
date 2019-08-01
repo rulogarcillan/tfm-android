@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.view_toolbar_center.tvTittle
 import tuppersoft.com.adoptme.R
 import tuppersoft.com.adoptme.core.platform.GlobalFragment
-import tuppersoft.com.adoptme.features.home.HomeFragment
 import tuppersoft.com.adoptme.features.main.MainActivity
 
 class BookmarksFragment : GlobalFragment() {
@@ -20,7 +19,7 @@ class BookmarksFragment : GlobalFragment() {
 
         @JvmStatic
         fun newInstance(tittle: Int) =
-            HomeFragment().apply {
+            BookmarksFragment().apply {
                 arguments = Bundle().apply {
                     putInt(TITTLE, tittle)
                     //putString(ARG_PARAM2, param2)
@@ -41,8 +40,8 @@ class BookmarksFragment : GlobalFragment() {
         super.onCreate(savedInstanceState)
         arguments?.let {
             val mContext = context
-            mContext?.let { mContext ->
-                tittle = mContext.getString(it.getInt(TITTLE))
+            mContext?.let { context ->
+                tittle = context.getString(arguments?.getInt(TITTLE) ?: 0)
                 (context as MainActivity).tvTittle.text = tittle
             }
         }

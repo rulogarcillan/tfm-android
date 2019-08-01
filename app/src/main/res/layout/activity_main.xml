@@ -21,7 +21,7 @@
             app:layout_constraintBottom_toTopOf="@id/idNavigationView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/myToolbar"></FrameLayout>
+            app:layout_constraintTop_toBottomOf="@+id/myToolbar" />
 
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
