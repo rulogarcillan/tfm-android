@@ -18,9 +18,7 @@ import kotlinx.android.synthetic.main.fragment_home.view.nsView
 import kotlinx.android.synthetic.main.fragment_home.view.tab_layout
 import kotlinx.android.synthetic.main.view_toolbar_center.tvTittle
 import tuppersoft.com.adoptme.R
-import tuppersoft.com.adoptme.R.layout
 import tuppersoft.com.adoptme.core.di.viewmodel.ViewModelFactory
-import tuppersoft.com.adoptme.core.extension.log
 import tuppersoft.com.adoptme.core.extension.observe
 import tuppersoft.com.adoptme.core.extension.viewModel
 import tuppersoft.com.adoptme.core.navigation.Navigation
@@ -60,7 +58,7 @@ class HomeFragment : GlobalFragment(), AnimalsActions {
         arguments?.let {
             val mContext = context
             mContext?.let { context ->
-                tittle = context.getString(arguments?.getInt(TITTLE)?:0)
+                tittle = context.getString(arguments?.getInt(TITTLE) ?: 0)
                 (context as MainActivity).tvTittle.text = tittle
             }
         }
@@ -105,7 +103,7 @@ class HomeFragment : GlobalFragment(), AnimalsActions {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         appComponent.inject(this)
-        mView = inflater.inflate(layout.fragment_home, container, false)
+        mView = inflater.inflate(R.layout.fragment_home, container, false)
         return mView
     }
 
@@ -207,6 +205,8 @@ class HomeFragment : GlobalFragment(), AnimalsActions {
     }
 
     override fun onClick(recordDto: RecordDto) {
-        recordDto.name.log()
+        fragmentManager?.let {
+            Navigation.goAnimalProfileFragment(it, recordDto)
+        }
     }
 }

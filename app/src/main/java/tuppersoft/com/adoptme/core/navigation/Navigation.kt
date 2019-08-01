@@ -7,7 +7,9 @@ import androidx.browser.customtabs.CustomTabsIntent
 import androidx.fragment.app.FragmentManager
 import com.mikepenz.aboutlibraries.LibsBuilder
 import tuppersoft.com.adoptme.R
+import tuppersoft.com.adoptme.R.style
 import tuppersoft.com.adoptme.core.extension.finishOrNot
+import tuppersoft.com.adoptme.features.AnimalProfile.AnimalProfileFragment
 import tuppersoft.com.adoptme.features.add.AddActivity
 import tuppersoft.com.adoptme.features.bookmarks.BookmarksFragment
 import tuppersoft.com.adoptme.features.discovery.DiscoveryFragment
@@ -17,6 +19,7 @@ import tuppersoft.com.adoptme.features.main.MainActivity
 import tuppersoft.com.adoptme.features.messages.MessagesFragment
 import tuppersoft.com.adoptme.features.personaldata.PersonalDataActivity
 import tuppersoft.com.adoptme.features.profile.ProfileFragment
+import tuppersoft.com.domain.entities.RecordDto
 
 object Navigation {
 
@@ -87,6 +90,14 @@ object Navigation {
         mActivity.finishOrNot(finish)
     }
 
+    fun goAnimalProfileFragment(manager: FragmentManager, recordDto: RecordDto) {
+        val fragment = AnimalProfileFragment.newInstance(recordDto)
+        val transaction = manager.beginTransaction()
+        transaction.replace(R.id.idFrameLayout, fragment, AnimalProfileFragment::class.java.name)
+        transaction.addToBackStack(AnimalProfileFragment::class.java.name)
+        transaction.commit()
+    }
+
     fun goLibraries(mActivity: Activity) {
         LibsBuilder()
             .withFields(tuppersoft.com.adoptme.R.string::class.java.fields)
@@ -99,7 +110,7 @@ object Navigation {
             .withAboutAppName(mActivity.getString(tuppersoft.com.adoptme.R.string.app_name))
             .withActivityTitle(mActivity.resources.getString(tuppersoft.com.adoptme.R.string.app_name))
             //.withActivityStyle(Libs.ActivityStyle.LIGHT_DARK_TOOLBAR)
-            .withActivityTheme(tuppersoft.com.adoptme.R.style.AppTheme)
+            .withActivityTheme(style.AppTheme)
             .start(mActivity)
     }
 
