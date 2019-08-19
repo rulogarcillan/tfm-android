@@ -6,13 +6,56 @@
     android:layout_height="match_parent"
     tools:context=".features.home.HomeFragment">
 
-    <TextView
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/idViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@drawable/pet" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
         android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/idViewPager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tabBackground="@drawable/tab_selector"
+        app:tabGravity="center"
+        app:tabIndicatorHeight="0dp"
+        app:tabPaddingEnd="7dp"
+        app:tabPaddingStart="7dp" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/idMsg"
+        style="@style/main_button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment"
+        android:elevation="1dp"
+        android:text="@string/send_me_a_message"
+        app:icon="@drawable/ic_message"
+        app:iconTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:rippleColor="@color/neutralGrey" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/idDelete"
+        style="@style/main_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="1dp"
+        android:text="@string/quit_animal"
+        app:icon="@drawable/ic_delete"
+        app:iconTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="@color/neutralGrey" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,7 +21,7 @@ class MainActivity : GlobalActivity() {
             when (it.itemId) {
                 R.id.navigation_home -> Navigation.goHomeFragment(supportFragmentManager)
               //  R.id.navigation_discovery_menu -> Navigation.goDiscoveryFragment(supportFragmentManager)
-                R.id.navigation_bookmark -> Navigation.goBookmarksFragment(supportFragmentManager)
+              //  R.id.navigation_bookmark -> Navigation.goBookmarksFragment(supportFragmentManager)
                 R.id.navigation_messages -> Navigation.goMessagesFragment(supportFragmentManager)
                 R.id.navigation_profile -> Navigation.goProfileFragment(supportFragmentManager)
             }

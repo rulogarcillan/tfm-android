@@ -49,6 +49,7 @@ object Navigation {
         val transaction = manager.beginTransaction()
         transaction.replace(R.id.idFrameLayout, fragment, HomeFragment::class.java.name)
         transaction.disallowAddToBackStack()
+        manager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         transaction.commit()
     }
 
@@ -57,6 +58,7 @@ object Navigation {
         val transaction = manager.beginTransaction()
         transaction.replace(R.id.idFrameLayout, fragment, DiscoveryFragment::class.java.name)
         transaction.disallowAddToBackStack()
+        manager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
         transaction.commit()
     }
 
@@ -65,6 +67,7 @@ object Navigation {
         val transaction = manager.beginTransaction()
         transaction.replace(R.id.idFrameLayout, fragment, BookmarksFragment::class.java.name)
         transaction.disallowAddToBackStack()
+        manager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
         transaction.commit()
     }
 
@@ -73,6 +76,7 @@ object Navigation {
         val transaction = manager.beginTransaction()
         transaction.replace(R.id.idFrameLayout, fragment, MessagesFragment::class.java.name)
         transaction.disallowAddToBackStack()
+        manager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
         transaction.commit()
     }
 
@@ -81,6 +85,7 @@ object Navigation {
         val transaction = manager.beginTransaction()
         transaction.replace(R.id.idFrameLayout, fragment, ProfileFragment::class.java.name)
         transaction.disallowAddToBackStack()
+        manager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
         transaction.commit()
     }
 

@@ -16,6 +16,7 @@ fun RecordDto.toRecord() = Record(
     sex,
     name,
     age,
+    isDeleted,
     imageUrl
 )
 
@@ -25,5 +26,6 @@ fun Record.toRecordDto() = RecordDto(
     sex,
     name,
     age,
+    isDeleted,
     imageUrl
 )

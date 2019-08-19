@@ -10,5 +10,6 @@ data class Record(
     val sex: Sex = Sex.MALE,
     val name: String = "",
     val age: Int = -1,
+    val isDeleted: Boolean = false,
     val imageUrl: MutableList<String> = mutableListOf()
 )

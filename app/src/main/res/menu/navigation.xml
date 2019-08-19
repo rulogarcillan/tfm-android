@@ -8,17 +8,17 @@
         android:title="@string/home"
         app:showAsAction="ifRoom" />
 
-  <!--  <item
-        android:id="@+id/navigation_discovery_menu"
-        android:icon="@drawable/ic_discovery_menu"
-        android:title="@string/discovery"
-        app:showAsAction="ifRoom" />-->
+    <!--  <item
+          android:id="@+id/navigation_discovery_menu"
+          android:icon="@drawable/ic_discovery_menu"
+          android:title="@string/discovery"
+          app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/navigation_bookmark"
         android:icon="@drawable/ic_bookmark_menu"
         android:title="@string/bookmarks"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="ifRoom" />-->
 
     <item
         android:id="@+id/navigation_messages"

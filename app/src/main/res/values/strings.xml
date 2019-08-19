@@ -54,6 +54,8 @@
     <string name="last_others_animal">Last other animals</string>
     <string name="last_rabbits">Last rabbits</string>
     <string name="last_cats">Last cats</string>
+    <string name="send_me_a_message">Send me a message</string>
+    <string name="quit_animal">Remove ad</string>
 
 
     <plurals name="age">

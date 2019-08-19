@@ -55,13 +55,6 @@ class HomeFragment : GlobalFragment(), AnimalsActions {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            val mContext = context
-            mContext?.let { context ->
-                tittle = context.getString(arguments?.getInt(TITTLE) ?: 0)
-                (context as MainActivity).tvTittle.text = tittle
-            }
-        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -94,6 +87,15 @@ class HomeFragment : GlobalFragment(), AnimalsActions {
 
     override fun onResume() {
         super.onResume()
+
+        arguments?.let {
+            val mContext = context
+            mContext?.let { context ->
+                tittle = context.getString(arguments?.getInt(TITTLE) ?: 0)
+                (context as MainActivity).tvTittle.text = tittle
+            }
+        }
+
         homeViewModel.getAllRecords(null)
         homeViewModel.getAllRecords(DOG)
         homeViewModel.getAllRecords(CAT)

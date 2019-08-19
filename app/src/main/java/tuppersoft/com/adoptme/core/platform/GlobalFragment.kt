@@ -13,6 +13,7 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_main.myToolbar
+import kotlinx.android.synthetic.main.fragment_animal_profile.view.idMsg
 import tuppersoft.com.adoptme.App
 import tuppersoft.com.adoptme.R
 import tuppersoft.com.adoptme.core.di.AppComponent
@@ -53,4 +54,6 @@ abstract class GlobalFragment : Fragment() {
             }
         }
     }
+
+
 }
