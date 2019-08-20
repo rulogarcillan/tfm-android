@@ -12,6 +12,8 @@ import tuppersoft.com.adoptme.core.extension.finishOrNot
 import tuppersoft.com.adoptme.features.add.AddActivity
 import tuppersoft.com.adoptme.features.animalProfile.AnimalProfileFragment
 import tuppersoft.com.adoptme.features.bookmarks.BookmarksFragment
+import tuppersoft.com.adoptme.features.chat.ChatActivity
+import tuppersoft.com.adoptme.features.chat.ChatActivity.Companion.CHAT_ID
 import tuppersoft.com.adoptme.features.discovery.DiscoveryFragment
 import tuppersoft.com.adoptme.features.home.HomeFragment
 import tuppersoft.com.adoptme.features.login.LoginActivity
@@ -40,6 +42,13 @@ object Navigation {
 
     fun goAddActivity(mActivity: Activity, finish: Boolean = false) {
         val intent = Intent(mActivity, AddActivity::class.java)
+        mActivity.startActivity(intent)
+        mActivity.finishOrNot(finish)
+    }
+
+    fun goChatActivity(mActivity: Activity, chatId: String, finish: Boolean = false) {
+        val intent = Intent(mActivity, ChatActivity::class.java)
+        intent.putExtra(CHAT_ID, chatId)
         mActivity.startActivity(intent)
         mActivity.finishOrNot(finish)
     }

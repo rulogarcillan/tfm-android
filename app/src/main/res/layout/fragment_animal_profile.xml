@@ -16,6 +16,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivProfile"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvName"
+                style="@style/fontBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_default"
+                android:textColor="@color/darkGrey"
+                tools:text="Raúl" />
+        </LinearLayout>
+
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/ivProfile"
             android:layout_width="52dp"
@@ -40,25 +59,6 @@
                 android:scaleType="centerCrop"
                 tools:srcCompat="@drawable/ic_profile" />
         </com.google.android.material.card.MaterialCardView>
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ivProfile"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/tvName"
-                style="@style/fontBold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_default"
-                android:textColor="@color/darkGrey"
-                tools:text="Raúl" />
-        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -66,55 +66,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".features.home.HomeFragment">
-
-        <androidx.viewpager.widget.ViewPager
-
-            android:id="@+id/idViewPager"
-            android:layout_width="match_parent"
-            android:layout_height="240dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:background="@drawable/pet" />
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginEnd="@dimen/margin_default"
-            android:background="@android:color/transparent"
-            app:layout_constraintBottom_toBottomOf="@+id/idViewPager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:tabBackground="@drawable/tab_selector"
-            app:tabGravity="center"
-            app:tabIndicatorHeight="0dp"
-            app:tabPaddingEnd="7dp"
-            app:tabPaddingStart="7dp" />
-
-
-        <LinearLayout
-            android:id="@+id/idMsg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/secondaryColor"
-            android:foreground="?attr/selectableItemBackground"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <TextView
-                style="@style/text_link_button_bold"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:text="@string/send_me_a_message"
-                android:textColor="@color/white"
-                app:cornerRadius="0dp"
-                app:rippleColor="@color/neutralGrey" />
-
-        </LinearLayout>
-
 
         <LinearLayout
             android:id="@+id/headers"
@@ -211,7 +162,6 @@
 
         </LinearLayout>
 
-
         <LinearLayout
             android:id="@+id/idDelete"
             android:layout_width="match_parent"
@@ -223,18 +173,66 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
-
             <TextView
-                style="@style/text_link_button_bold"
+                style="@style/fontBold"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
                 android:minHeight="48dp"
                 android:text="@string/quit_animal"
                 android:textColor="@color/white"
-                app:cornerRadius="0dp"
-                app:rippleColor="@color/neutralGrey" />
+                android:textSize="16sp" />
 
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/idMsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/secondaryColor"
+            android:foreground="?attr/selectableItemBackground"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                style="@style/fontBold"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:minHeight="48dp"
+                android:text="@string/send_me_a_message"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/idViewPager"
+
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:elevation="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@drawable/pet" />
+
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/margin_default"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="@+id/idViewPager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tabBackground="@drawable/tab_selector"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp"
+            app:tabPaddingEnd="7dp"
+            app:tabPaddingStart="7dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

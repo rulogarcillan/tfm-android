@@ -16,11 +16,13 @@ import kotlinx.android.synthetic.main.fragment_animal_profile.view.tvSex
 import kotlinx.android.synthetic.main.fragment_home.view.idViewPager
 import kotlinx.android.synthetic.main.fragment_home.view.tab_layout
 import kotlinx.android.synthetic.main.view_toolbar_center.tvTittle
-import tuppersoft.com.adoptme.R.layout
+import tuppersoft.com.adoptme.R
 import tuppersoft.com.adoptme.core.di.viewmodel.ViewModelFactory
 import tuppersoft.com.adoptme.core.extension.loadFromUrl
 import tuppersoft.com.adoptme.core.extension.observe
+import tuppersoft.com.adoptme.core.extension.sortCombine
 import tuppersoft.com.adoptme.core.extension.viewModel
+import tuppersoft.com.adoptme.core.navigation.Navigation
 import tuppersoft.com.adoptme.core.platform.GlobalFragment
 import tuppersoft.com.adoptme.features.home.AnimalsPagerAdapter
 import tuppersoft.com.adoptme.features.main.MainActivity
@@ -80,7 +82,6 @@ class AnimalProfileFragment : GlobalFragment() {
         view.tvAge.text = recordDto.age.toString()
         view.tvSex.text = recordDto.sex.name
 
-
         animalsProfileViewModel.getUser(recordDto.uid)
 
         val mHandler = Handler()
@@ -97,11 +98,20 @@ class AnimalProfileFragment : GlobalFragment() {
             }
         }
         mTicker.run()
+
+
+        view.idMsg.setOnClickListener {
+            val chatId = recordDto.uid sortCombine user.uid
+            activity?.let {
+                Navigation.goChatActivity(it, chatId)
+            }
+
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         appComponent.inject(this)
-        mView = inflater.inflate(layout.fragment_animal_profile, container, false)
+        mView = inflater.inflate(R.layout.fragment_animal_profile, container, false)
         return mView
     }
 

@@ -9,3 +9,16 @@ fun String?.log(tag: String = TAG) {
         Log.d(tag, this ?: "************** - Null value - **************")
     }
 }
+
+infix fun String.sortCombine(value2: String): String {
+
+    val list: MutableList<String> = mutableListOf()
+    list.add(this)
+    list.add(value2)
+
+    var result = ""
+    list.sorted().forEach {
+        result += it
+    }
+    return result
+}
