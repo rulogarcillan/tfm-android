@@ -1,4 +1,4 @@
-package tuppersoft.com.adoptme.features.AnimalProfile
+package tuppersoft.com.adoptme.features.animalProfile
 
 import android.content.Context
 import android.os.Bundle
@@ -8,22 +8,37 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_animal_profile.view.idDelete
 import kotlinx.android.synthetic.main.fragment_animal_profile.view.idMsg
+import kotlinx.android.synthetic.main.fragment_animal_profile.view.ivAvatar
+import kotlinx.android.synthetic.main.fragment_animal_profile.view.tvAge
+import kotlinx.android.synthetic.main.fragment_animal_profile.view.tvAnimalName
+import kotlinx.android.synthetic.main.fragment_animal_profile.view.tvName
+import kotlinx.android.synthetic.main.fragment_animal_profile.view.tvSex
 import kotlinx.android.synthetic.main.fragment_home.view.idViewPager
 import kotlinx.android.synthetic.main.fragment_home.view.tab_layout
 import kotlinx.android.synthetic.main.view_toolbar_center.tvTittle
-import tuppersoft.com.adoptme.R
+import tuppersoft.com.adoptme.R.layout
+import tuppersoft.com.adoptme.core.di.viewmodel.ViewModelFactory
+import tuppersoft.com.adoptme.core.extension.loadFromUrl
+import tuppersoft.com.adoptme.core.extension.observe
+import tuppersoft.com.adoptme.core.extension.viewModel
 import tuppersoft.com.adoptme.core.platform.GlobalFragment
 import tuppersoft.com.adoptme.features.home.AnimalsPagerAdapter
 import tuppersoft.com.adoptme.features.main.MainActivity
 import tuppersoft.com.data.repositories.SharedPreferencesRepository
 import tuppersoft.com.domain.entities.RecordDto
 import tuppersoft.com.domain.entities.UserDto
+import javax.inject.Inject
 
 class AnimalProfileFragment : GlobalFragment() {
 
     lateinit var recordDto: RecordDto
     val user: UserDto by lazy { SharedPreferencesRepository.loadPreferenceObject(requireContext(), "USER", UserDto()) as UserDto }
     var isMyAnimal = false
+    lateinit var mView: View
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+    private lateinit var animalsProfileViewModel: AnimalsProfileViewModel
 
     companion object {
         private const val ANIMAL = "ANIMAL"
@@ -49,16 +64,24 @@ class AnimalProfileFragment : GlobalFragment() {
         }
 
         activity?.let {
-            mView.idViewPager.adapter = AnimalsPagerAdapter(it.supportFragmentManager, pages)
+            mView.idViewPager.adapter = AnimalsPagerAdapter(it.supportFragmentManager, pages, false)
         }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initViewModel()
         initAdapter(view)
         initIndicator(view)
         manageButton(view)
+
+        view.tvAnimalName.text = recordDto.name
+        view.tvAge.text = recordDto.age.toString()
+        view.tvSex.text = recordDto.sex.name
+
+
+        animalsProfileViewModel.getUser(recordDto.uid)
 
         val mHandler = Handler()
         val mTicker = object : Runnable {
@@ -78,7 +101,8 @@ class AnimalProfileFragment : GlobalFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         appComponent.inject(this)
-        return inflater.inflate(R.layout.fragment_animal_profile, container, false)
+        mView = inflater.inflate(layout.fragment_animal_profile, container, false)
+        return mView
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -94,6 +118,17 @@ class AnimalProfileFragment : GlobalFragment() {
         getmArguments()
         isMyAnimal = user.uid == recordDto.uid
         (context as MainActivity).tvTittle.text = recordDto.name
+    }
+
+    private fun initViewModel() {
+        animalsProfileViewModel = viewModel(viewModelFactory) {
+            observe(user, ::handleGetUserProfile)
+        }
+    }
+
+    fun handleGetUserProfile(userDto: UserDto?) {
+        mView.ivAvatar.loadFromUrl(userDto?.photoUrl)
+        mView.tvName.text = userDto?.name
     }
 
     private fun manageButton(view: View) {

@@ -45,7 +45,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:scaleType="centerCrop"
-                tools:srcCompat="@drawable/ic_profile"></ImageView>
+                tools:srcCompat="@drawable/ic_profile" />
         </com.google.android.material.card.MaterialCardView>
 
 

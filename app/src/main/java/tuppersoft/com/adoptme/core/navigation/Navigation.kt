@@ -9,8 +9,8 @@ import com.mikepenz.aboutlibraries.LibsBuilder
 import tuppersoft.com.adoptme.R
 import tuppersoft.com.adoptme.R.style
 import tuppersoft.com.adoptme.core.extension.finishOrNot
-import tuppersoft.com.adoptme.features.AnimalProfile.AnimalProfileFragment
 import tuppersoft.com.adoptme.features.add.AddActivity
+import tuppersoft.com.adoptme.features.animalProfile.AnimalProfileFragment
 import tuppersoft.com.adoptme.features.bookmarks.BookmarksFragment
 import tuppersoft.com.adoptme.features.discovery.DiscoveryFragment
 import tuppersoft.com.adoptme.features.home.HomeFragment
@@ -98,7 +98,8 @@ object Navigation {
     fun goAnimalProfileFragment(manager: FragmentManager, recordDto: RecordDto) {
         val fragment = AnimalProfileFragment.newInstance(recordDto)
         val transaction = manager.beginTransaction()
-        transaction.replace(R.id.idFrameLayout, fragment, AnimalProfileFragment::class.java.name)
+        transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left)
+        transaction.replace(R.id.idFrameLayout, fragment)
         transaction.addToBackStack(AnimalProfileFragment::class.java.name)
         transaction.commit()
     }
