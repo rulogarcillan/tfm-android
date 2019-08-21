@@ -14,7 +14,7 @@ import tuppersoft.com.adoptme.R
 
 /**
  * Created by Raúl Rodríguez Concepción on 2019-07-11.
- * Talento Mobile
+ *
  * raulrcs@gmail.com
  */
 class CustomRadioSex : ConstraintLayout {

@@ -10,6 +10,7 @@ import tuppersoft.com.domain.usescases.GetUser
 import tuppersoft.com.domain.usescases.IsLogin
 import tuppersoft.com.domain.usescases.SaveRecord
 import tuppersoft.com.domain.usescases.SaveUser
+import tuppersoft.com.domain.usescases.SendMessage
 import tuppersoft.com.domain.usescases.UploadImage
 import javax.inject.Singleton
 
@@ -43,5 +44,9 @@ class RepositoriesModule {
     @Provides
     @Singleton
     fun provideGetUser(dataSource: FirebaseRepositoryImpl): GetUser = GetUser(dataSource)
+
+    @Provides
+    @Singleton
+    fun provideSendMessage(dataSource: FirebaseRepositoryImpl): SendMessage = SendMessage(dataSource)
 }
 

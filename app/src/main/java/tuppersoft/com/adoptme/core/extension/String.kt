@@ -17,8 +17,12 @@ infix fun String.sortCombine(value2: String): String {
     list.add(value2)
 
     var result = ""
-    list.sorted().forEach {
-        result += it
+    list.sorted().forEachIndexed { index, s ->
+        result = if (index == 0) {
+            result + s
+        } else {
+            "$result-$s"
+        }
     }
     return result
 }

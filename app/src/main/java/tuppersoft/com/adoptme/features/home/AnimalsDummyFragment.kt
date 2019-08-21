@@ -14,7 +14,7 @@ import tuppersoft.com.domain.entities.Sex.FEMALE
 
 /**
  * Created by Raúl Rodríguez Concepción on 2019-07-30.
- * Talento Mobile
+ *
  * raulrcs@gmail.com
  */
 

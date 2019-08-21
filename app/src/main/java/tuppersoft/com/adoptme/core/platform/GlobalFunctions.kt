@@ -8,7 +8,7 @@ import tuppersoft.com.adoptme.R
 
 /**
  * Created by Raúl Rodríguez Concepción on 2019-06-16.
- * Talento Mobile
+ *
  * raulrcs@gmail.com
  */
 object GlobalFunctions {

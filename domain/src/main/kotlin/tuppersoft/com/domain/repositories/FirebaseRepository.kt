@@ -1,6 +1,8 @@
 package tuppersoft.com.domain.repositories
 
+import arrow.core.None
 import tuppersoft.com.domain.entities.Animal
+import tuppersoft.com.domain.entities.MessageDto
 import tuppersoft.com.domain.entities.RecordDto
 import tuppersoft.com.domain.entities.UserDto
 
@@ -12,4 +14,5 @@ interface FirebaseRepository {
     suspend fun loginWithFirebase(token: String): UserDto?
     fun saveRecord(record: RecordDto): RecordDto
     suspend fun getAllRecords(animal: Animal?): List<RecordDto>
+    fun saveChatMessage(msg: MessageDto, chatId: String): None
 }

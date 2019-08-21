@@ -1,13 +1,16 @@
 package tuppersoft.com.data.repositories
 
+import arrow.core.None
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
 import tuppersoft.com.data.entities.Record
+import tuppersoft.com.data.mappers.toMessage
 import tuppersoft.com.data.mappers.toRecord
 import tuppersoft.com.data.mappers.toRecordDto
 import tuppersoft.com.data.mappers.toUser
 import tuppersoft.com.domain.entities.Animal
+import tuppersoft.com.domain.entities.MessageDto
 import tuppersoft.com.domain.entities.RecordDto
 import tuppersoft.com.domain.entities.UserDto
 import tuppersoft.com.domain.repositories.FirebaseRepository
@@ -39,6 +42,14 @@ class FirebaseRepositoryImpl @Inject constructor(val auth: FirebaseAuth, private
             .addOnFailureListener { }
 
         return user
+    }
+
+    override fun saveChatMessage(msg: MessageDto, chatId: String): None {
+
+      db.collection("chats").document(chatId).collection(chatId).add(msg.toMessage())
+            .addOnSuccessListener { }
+            .addOnFailureListener { }
+        return None
     }
 
     override suspend fun getAllRecords(animal: Animal?): List<RecordDto> {
