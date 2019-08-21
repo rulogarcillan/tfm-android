@@ -11,6 +11,7 @@ fun getReference(uid: String): DocumentReference {
 }
 
 fun RecordDto.toRecord() = Record(
+    id,
     getReference(uid),
     animal,
     sex,
@@ -21,6 +22,7 @@ fun RecordDto.toRecord() = Record(
 )
 
 fun Record.toRecordDto() = RecordDto(
+    id,
     uid?.id.toString(),
     animal,
     sex,

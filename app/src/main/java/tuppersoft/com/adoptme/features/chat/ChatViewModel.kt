@@ -7,6 +7,7 @@ import tuppersoft.com.adoptme.core.platform.GlobalViewModel
 import tuppersoft.com.data.entities.Message
 import tuppersoft.com.data.mappers.toMessageDto
 import tuppersoft.com.domain.entities.MessageDto
+import tuppersoft.com.domain.entities.UserDto
 import tuppersoft.com.domain.usescases.GetUser
 import tuppersoft.com.domain.usescases.SendMessage
 import tuppersoft.com.domain.usescases.SendMessage.Params
@@ -18,9 +19,14 @@ import javax.inject.Inject
  * raulrcs@gmail.com
  */
 
-class ChatViewModel @Inject constructor(private val getUser: GetUser, private val sendMessage: SendMessage, private val db: FirebaseFirestore) : GlobalViewModel() {
+class ChatViewModel @Inject constructor(
+    private val getUser: GetUser,
+    private val sendMessage: SendMessage,
+    private val db: FirebaseFirestore
+) : GlobalViewModel() {
 
     val msgList: MutableList<MessageDto> = mutableListOf()
+    val user: MutableLiveData<UserDto> = MutableLiveData()
 
     val msgListLive: MutableLiveData<MutableList<MessageDto>> = MutableLiveData()
 
@@ -41,6 +47,12 @@ class ChatViewModel @Inject constructor(private val getUser: GetUser, private va
                 }
             }
 
+        }
+    }
+
+    fun getUser(userId: String) {
+        getUser.invoke(GetUser.Params(userId)) {
+            user.value = it
         }
     }
 

@@ -15,4 +15,6 @@ interface FirebaseRepository {
     fun saveRecord(record: RecordDto): RecordDto
     suspend fun getAllRecords(animal: Animal?): List<RecordDto>
     fun saveChatMessage(msg: MessageDto, chatId: String): None
+    suspend fun getUserChatsDataBase(userId: String): MutableList<String>
+    fun deleteRecord(record: RecordDto)
 }

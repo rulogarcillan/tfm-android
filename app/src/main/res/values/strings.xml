@@ -64,6 +64,8 @@
 
     <string name="quit_animal">Remove ad</string>
     <string name="title_activity_chat">ChatActivity</string>
+    <string name="enter_message">Enter message</string>
+    <string name="send">SEND</string>
 
 
 </resources>

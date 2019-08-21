@@ -34,7 +34,13 @@ import javax.inject.Inject
 class AnimalProfileFragment : GlobalFragment() {
 
     lateinit var recordDto: RecordDto
-    val user: UserDto by lazy { SharedPreferencesRepository.loadPreferenceObject(requireContext(), "USER", UserDto()) as UserDto }
+    val user: UserDto by lazy {
+        SharedPreferencesRepository.loadPreferenceObject(
+            requireContext(),
+            "USER",
+            UserDto()
+        ) as UserDto
+    }
     var isMyAnimal = false
     lateinit var mView: View
 
@@ -52,6 +58,15 @@ class AnimalProfileFragment : GlobalFragment() {
                     putSerializable(ANIMAL, recordDto)
                 }
             }
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        appComponent.inject(this)
+        mView = inflater.inflate(R.layout.fragment_animal_profile, container, false)
+        return mView
     }
 
     private fun initIndicator(mView: View) {
@@ -107,16 +122,21 @@ class AnimalProfileFragment : GlobalFragment() {
             }
 
         }
+
+        view.idDelete.setOnClickListener {
+            animalsProfileViewModel.deleteRecord(recordDto)
+        }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        appComponent.inject(this)
-        mView = inflater.inflate(R.layout.fragment_animal_profile, container, false)
-        return mView
+    fun handleDeleteRecord(flag: Boolean) {
+        fragmentManager?.let {
+            Navigation.goHomeFragment(it)
+        }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    fun handleGetUserProfile(userDto: UserDto?) {
+        mView.ivAvatar.loadFromUrl(userDto?.photoUrl)
+        mView.tvName.text = userDto?.name
     }
 
     private fun getmArguments() {
@@ -133,12 +153,8 @@ class AnimalProfileFragment : GlobalFragment() {
     private fun initViewModel() {
         animalsProfileViewModel = viewModel(viewModelFactory) {
             observe(user, ::handleGetUserProfile)
+            observe(flag, ::handleDeleteRecord)
         }
-    }
-
-    fun handleGetUserProfile(userDto: UserDto?) {
-        mView.ivAvatar.loadFromUrl(userDto?.photoUrl)
-        mView.tvName.text = userDto?.name
     }
 
     private fun manageButton(view: View) {

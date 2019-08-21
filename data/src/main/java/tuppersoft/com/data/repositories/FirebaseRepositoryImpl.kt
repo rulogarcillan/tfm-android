@@ -18,21 +18,20 @@ import javax.inject.Inject
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
-class FirebaseRepositoryImpl @Inject constructor(val auth: FirebaseAuth, private val db: FirebaseFirestore) : FirebaseRepository {
+class FirebaseRepositoryImpl @Inject constructor(val auth: FirebaseAuth, private val db: FirebaseFirestore) :
+    FirebaseRepository {
 
     override fun getUserLogin(): UserDto? {
         return auth.currentUser?.toUser()
     }
 
-    override fun saveRecord(record: RecordDto): RecordDto {
+    override fun deleteRecord(record: RecordDto) {
+        val docRef = db.collection("records").document(record.id)
+        docRef.update("deleted", true)
+    }
 
-        db.collection("records").add(record.toRecord())
-            .addOnSuccessListener {
-                it.toString()
-            }
-            .addOnFailureListener {
-                it.toString()
-            }
+    override fun saveRecord(record: RecordDto): RecordDto {
+        db.collection("records").document(record.id).set(record.toRecord())
         return record
     }
 
@@ -45,10 +44,11 @@ class FirebaseRepositoryImpl @Inject constructor(val auth: FirebaseAuth, private
     }
 
     override fun saveChatMessage(msg: MessageDto, chatId: String): None {
+        val map = HashMap<String, String>()
+        map["dummy"] = "dummy"
+        db.collection("chats").document(chatId).set(map)
+        db.collection("chats").document(chatId).collection(chatId).add(msg.toMessage())
 
-      db.collection("chats").document(chatId).collection(chatId).add(msg.toMessage())
-            .addOnSuccessListener { }
-            .addOnFailureListener { }
         return None
     }
 
@@ -56,18 +56,35 @@ class FirebaseRepositoryImpl @Inject constructor(val auth: FirebaseAuth, private
 
         return if (animal == null) {
             suspendCoroutine { continuation ->
-                db.collection("records").get().addOnSuccessListener { items ->
-                    continuation.resume(items.toObjects(Record::class.java).map { it.toRecordDto() })
-                }
+                db.collection("records").whereEqualTo("deleted", false)
+                    .get().addOnSuccessListener { items ->
+                        continuation.resume(items.toObjects(Record::class.java).map { it.toRecordDto() })
+                    }
             }
         } else {
             suspendCoroutine { continuation ->
-                db.collection("records").whereEqualTo("animal", animal.name).get().addOnSuccessListener { items ->
-                    continuation.resume(items.toObjects(Record::class.java).map { it.toRecordDto() })
-                }
+                db.collection("records").whereEqualTo("animal", animal.name).whereEqualTo("deleted", false).get()
+                    .addOnSuccessListener { items ->
+                        continuation.resume(items.toObjects(Record::class.java).map { it.toRecordDto() })
+                    }
             }
         }
     }
+
+    override suspend fun getUserChatsDataBase(userId: String): MutableList<String> =
+        suspendCoroutine { continuation ->
+            db.collection("chats").get()
+                .addOnSuccessListener { querySnapshot ->
+                    val listUser: MutableList<String> = mutableListOf()
+
+                    querySnapshot.documents.filter { it.id.contains(userId) }.forEach { filt ->
+                        listUser.add(filt.id)
+                    }
+
+                    continuation.resume(listUser)
+                }
+                .addOnFailureListener { continuation.resume(mutableListOf()) }
+        }
 
     override suspend fun getUserDataBase(userId: String): UserDto? =
         suspendCoroutine { continuation ->

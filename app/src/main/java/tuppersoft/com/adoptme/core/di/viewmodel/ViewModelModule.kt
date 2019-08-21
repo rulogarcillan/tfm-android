@@ -10,6 +10,7 @@ import tuppersoft.com.adoptme.features.animalProfile.AnimalsProfileViewModel
 import tuppersoft.com.adoptme.features.chat.ChatViewModel
 import tuppersoft.com.adoptme.features.home.HomeViewModel
 import tuppersoft.com.adoptme.features.login.LoginViewModel
+import tuppersoft.com.adoptme.features.messages.MessageViewModel
 import tuppersoft.com.adoptme.features.personaldata.PersonalDataViewModel
 
 @Module
@@ -47,6 +48,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(ChatViewModel::class)
     abstract fun bindChatViewModel(viewModel: ChatViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MessageViewModel::class)
+    abstract fun bindMessageViewModel(viewModel: MessageViewModel): ViewModel
 }
 
 
