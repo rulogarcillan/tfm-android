@@ -107,7 +107,11 @@ object Navigation {
     fun goAnimalProfileFragment(manager: FragmentManager, recordDto: RecordDto) {
         val fragment = AnimalProfileFragment.newInstance(recordDto)
         val transaction = manager.beginTransaction()
-        transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left)
+        transaction.setCustomAnimations(
+            R.anim.slide_in,
+            R.anim.slide_out
+
+        )
         transaction.replace(R.id.idFrameLayout, fragment)
         transaction.addToBackStack(AnimalProfileFragment::class.java.name)
         transaction.commit()
